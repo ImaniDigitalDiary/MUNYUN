@@ -22,4 +22,3 @@ const Expense = mongoose.model('Expense', expenseSchema);
 
 export default Expense;
 
-// test commit
