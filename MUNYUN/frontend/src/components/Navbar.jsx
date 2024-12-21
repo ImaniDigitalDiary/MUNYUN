@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { PlusSquareIcon } from '@chakra-ui/icons'
 import { IoMoon } from 'react-icons/io5'
 import { LuSun } from 'react-icons/lu'
+// import { useExpenseTracking } from '../tracking/expense'
 
 
 
@@ -43,7 +44,6 @@ function Navbar() {
             </Link>
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? <IoMoon /> : <LuSun size='20' />}
-
             </Button>
           </HStack>
 
