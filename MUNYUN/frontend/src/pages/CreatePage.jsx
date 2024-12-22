@@ -1,4 +1,4 @@
-import { Button, Container, useColorModeValue, VStack, Heading, Box, Input } from '@chakra-ui/react'
+import { Button, Container, useColorModeValue, VStack, Heading, Box, Input, useToast } from '@chakra-ui/react'
 import React from 'react'
 import { useState } from 'react'
 import { useExpenseTracking } from '../tracking/expense'
@@ -11,12 +11,28 @@ function CreatePage() {
     image: '',
   })
 
+  const toast = useToast()
+
   const {createExpense}=useExpenseTracking()
 
   const handleAddExpense = async() => {
    const {success, message} = await createExpense(newExpense)
-    console.log('Success: ', success)
-    console.log('Message: ', message)
+    if (!success) {
+      toast({
+        title: 'Error',
+        description: message,
+        status: 'error',
+        isClosable: true 
+      })
+    } else {
+      toast({
+      title: 'Success',
+      description: message,
+      status: 'success',
+      isClosable: true 
+    })
+    }
+    setNewExpense({name:'', price: '', image: ''})
   }
   
   return (
