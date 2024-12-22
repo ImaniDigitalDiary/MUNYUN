@@ -30,12 +30,23 @@ export const useExpenseTracking = create((set) => ({
         const res = await fetch('http://localhost:8000/api/expenses') //fetch the endpoint
         const data = await res.json() //extract the data
         set({ expenses: data.data}) //returning the data
-    }
-
-}))
+    },
 
     // delete an expense
+    deleteExpense: async (eid) => {
+        const res = await fetch(`http://localhost:8000/api/expenses/${eid}`, { //pass the expense id (eid) through the server request to use the delete method to delete the expense
+            method: 'DELETE',
 
+        })
+        const data = await res.json() // get the data and extract
+        if(!data.success) return { success: false, message: data.message} //if data success is false, then update the state
+
+        set(state => ({ expenses: state.expenses.filter(expense => expense._id !== eid)})) //use filter method to delete current expense from the state and update the ui at the same time
+        return {success: true, message: data.message}
+    }
+}))
+
+    
 
 
 

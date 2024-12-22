@@ -1,12 +1,38 @@
 import React from 'react'
-import { Box, Image, Heading, Text, HStack, IconButton, useColorModeValue } from '@chakra-ui/react'
+import { Box, Image, Heading, Text, HStack, IconButton, useColorModeValue, useToast, ModalOverlay, ModalCloseButton, Input } from '@chakra-ui/react'
 
 import { FaEdit as EditIcon } from 'react-icons/fa'; // imrport edit icon
 import { MdDelete as DeleteIcon } from 'react-icons/md'; //Import DeleteIcon 
+import { useExpenseTracking } from '../tracking/expense';
 
 function ExpenseCard({expense}) {
   const textColor = useColorModeValue('gray.600', 'gray.200')
   const bg = useColorModeValue('white', 'gray.800')
+
+
+  const {deleteExpense} = useExpenseTracking()
+  const toast = useToast()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const handleDeleteExpense = async (eid) => {
+    const {success, message} = await deleteExpense(eid)
+    if (!success) {
+      toast({
+        title: 'Error',
+        description: message,
+        status: 'error',
+        isClosable: true,
+        duration: 3000
+      })
+    } else {
+      toast({
+      title: 'Success',
+      description: message,
+      status: 'success',
+      isClosable: true,
+      duration: 3000
+    })
+  }}
   return (
     <Box
         shadow='lg'
@@ -29,10 +55,43 @@ function ExpenseCard({expense}) {
 
         <HStack spacing={2}>
           <IconButton icon={<EditIcon />} colorScheme='blue' />
-          <IconButton icon={<DeleteIcon />} colorScheme='red'/>
+          <IconButton icon={<DeleteIcon />} colorScheme='red' 
+          onClick={() => handleDeleteExpense(expense._id)} />
         </HStack>
         </Box>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
 
+
+          <ModalContent>
+            <ModalHeader>Update Expense</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <VStack spacing={4}>
+                <Input
+                  placeholder='Expense Name'
+                  name='name'
+                  // value={updatedExpense.name}
+                  // onChange={(e) => setUpdatedExpense({ ...updatedExpense, name: e.target.value})}
+                />
+                <Input
+                  placeholder='Expense Price'
+                  name='price'
+                  type='number'
+                  // value={updatedExpense.price}
+                  // onChange={(e) => setUpdatedExpense({ ...updatedExpense, price: e.target.value})}
+                />
+                <Input
+                  placeholder='Image URL'
+                  name='image'
+                  // value={updatedExpense.image}
+                  // onChange={(e) => setUpdatedExpense({ ...updatedExpense, image: e.target.value})}
+                />
+
+              </VStack>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
     </Box>
   )
 }
