@@ -1,18 +1,21 @@
-import React from 'react'
-import { Box, Image, Heading, Text, HStack, IconButton, useColorModeValue, useToast, ModalOverlay, ModalCloseButton, Input } from '@chakra-ui/react'
+import React, { useState } from 'react'
+import { Box, Image, Heading, Text, HStack, IconButton, useColorModeValue, useToast, ModalOverlay, ModalCloseButton, Input,
+  Modal,  ModalContent, ModalHeader, ModalBody, VStack, ModalFooter, Button
+ } from '@chakra-ui/react'
 
-import { FaEdit as EditIcon } from 'react-icons/fa'; // imrport edit icon
+import {  FaEdit as EditIcon } from 'react-icons/fa'; // imrport edit icon
 import { MdDelete as DeleteIcon } from 'react-icons/md'; //Import DeleteIcon 
 import { useExpenseTracking } from '../tracking/expense';
 
-function ExpenseCard({expense}) {
+const ExpenseCard = ({expense, isOpen, onOpen, onClose}) => {
   const textColor = useColorModeValue('gray.600', 'gray.200')
   const bg = useColorModeValue('white', 'gray.800')
 
+  const [updateExpense, setUpdatedExpense] = useState(expense)
 
-  const {deleteExpense} = useExpenseTracking()
+  const {deleteExpense, updatedExpense } = useExpenseTracking()
   const toast = useToast()
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  // const { isOpen, onOpen, onClose } = useDisclosure()
 
   const handleDeleteExpense = async (eid) => {
     const {success, message} = await deleteExpense(eid)
@@ -33,6 +36,11 @@ function ExpenseCard({expense}) {
       duration: 3000
     })
   }}
+
+  const handleUpdateExpense = async (eid, updatedExpense) => {
+    
+  }
+
   return (
     <Box
         shadow='lg'
@@ -53,45 +61,48 @@ function ExpenseCard({expense}) {
           ${expense.price}
         </Text>
 
-        <HStack spacing={2}>
-          <IconButton icon={<EditIcon />} colorScheme='blue' />
-          <IconButton icon={<DeleteIcon />} colorScheme='red' 
-          onClick={() => handleDeleteExpense(expense._id)} />
-        </HStack>
+          <HStack spacing={2}>
+            <IconButton aria-hidden="false" icon={<EditIcon />} colorScheme='blue' 
+            onClick={onOpen}/>
+            <IconButton icon={<DeleteIcon />} colorScheme='red' 
+            onClick={() => handleDeleteExpense(expense._id)} />
+          </HStack>
         </Box>
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
+
+        {isOpen && (
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
 
 
-          <ModalContent>
-            <ModalHeader>Update Expense</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <VStack spacing={4}>
-                <Input
-                  placeholder='Expense Name'
-                  name='name'
-                  // value={updatedExpense.name}
-                  // onChange={(e) => setUpdatedExpense({ ...updatedExpense, name: e.target.value})}
-                />
-                <Input
-                  placeholder='Expense Price'
-                  name='price'
-                  type='number'
-                  // value={updatedExpense.price}
-                  // onChange={(e) => setUpdatedExpense({ ...updatedExpense, price: e.target.value})}
-                />
-                <Input
-                  placeholder='Image URL'
-                  name='image'
-                  // value={updatedExpense.image}
-                  // onChange={(e) => setUpdatedExpense({ ...updatedExpense, image: e.target.value})}
-                />
+            <ModalContent>
+              <ModalHeader>Update Expense</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <VStack spacing={4}>
+                  <Input placeholder='Expense Name' name='name' value={updatedExpense.name}
+                    onChange={(e) => setUpdatedExpense({ ...updatedExpense, name: e.target.value})}
+    />
+                  <Input placeholder='Expense Price' name='price' type='number' value={updatedExpense.price}
+                    onChange={(e) => setUpdatedExpense({ ...updatedExpense, price: e.target.value})}
+                  />
+                  <Input placeholder='Image URL' name='image' value={updatedExpense.image}
+                    onChange={(e) => setUpdatedExpense({ ...updatedExpense, image: e.target.value})}
+                  />
+                </VStack>
+              </ModalBody>
 
-              </VStack>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
+              <ModalFooter>
+                <Button colorScheme='blue' mr={3} 
+                onClick={() => handleUpdateExpense(expense._id, expense)}>
+                  Update
+                </Button>
+                <Button variant='ghost' onClick={onClose}>
+                  Cancel
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+        ) } 
     </Box>
   )
 }

@@ -41,10 +41,31 @@ export const useExpenseTracking = create((set) => ({
         const data = await res.json() // get the data and extract
         if(!data.success) return { success: false, message: data.message} //if data success is false, then update the state
 
-        set(state => ({ expenses: state.expenses.filter(expense => expense._id !== eid)})) //use filter method to delete current expense from the state and update the ui at the same time
+        set(state => ({ 
+            expenses: state.expenses.filter(expense => expense._id !== eid)
+        })) //use filter method to delete current expense from the state and update the ui at the same time
         return {success: true, message: data.message}
-    }
+    },
+
+    updateExpense: async (eid, updatedExpense) => {
+        const res = await fetch(`/api/expenses/${eid}` , {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedExpense),
+        })
+        const data = await res.json() // get data & extract
+        if(!data.success) return { success: false, message: data.message} //if data success is false, then update state
+
+        set((state) => ({
+            expenses: state.expenses.map((expense => expense._id === eid ? data.data : prodocut)), //update the ui immediately without needed to refresh
+        }))    
+        
+    },
 }))
+
+
 
     
 
