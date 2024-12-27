@@ -59,7 +59,7 @@ export const useExpenseTracking = create((set) => ({
         if(!data.success) return { success: false, message: data.message} //if data success is false, then update state
 
         set((state) => ({
-            expenses: state.expenses.map((expense => expense._id === eid ? data.data : prodocut)), //update the ui immediately without needed to refresh
+            expenses: state.expenses.map((expense => expense._id === eid ? data.data : expense)), //update the ui immediately without needed to refresh
         }))    
         
     },

@@ -40,12 +40,29 @@ const ExpenseCard = ({expense}) => {
   const handleUpdateExpense = async (eid, updatedExpense) => {
     await updateExpense(eid, updatedExpense)
     onClose()
+    if (!success) {
+      toast({
+        title: 'Error',
+        description: message,
+        status: 'error',
+        isClosable: true,
+        duration: 3000       
+      })
+    } else {
+      toast({
+        title: 'Error',
+        description: message,
+        status: 'error',
+        isClosable: true,
+        duration: 3000       
+      })
+    }
   }
 
-  // const handleOpenModal = () => {
-  //   setUpdatedExpense(expense)
-  //   onOpen()
-  // } 
+  const handleOpenModal = () => {
+    setUpdatedExpense(expense)
+    onOpen()
+  } 
 
 
   // const handleModalClose = () => {
