@@ -42,9 +42,17 @@ const ExpenseCard = ({expense}) => {
     onClose()
   }
 
-  const handleOpenModal = () => {
-    setUpdatedExpense(expense)
-    onOpen()
+  // const handleOpenModal = () => {
+  //   setUpdatedExpense(expense)
+  //   onOpen()
+  // } 
+
+
+  const handleModalClose = () => {
+    onClose() //Ensure the modal close state is triggered
+    setTimeout(() => {
+      document.activeElement.blue() //Reset focus
+    }, 0)
   }
 
   return (
@@ -69,7 +77,7 @@ const ExpenseCard = ({expense}) => {
 
           <HStack spacing={2}>
             <IconButton aria-hidden="false" icon={<EditIcon />} colorScheme='blue' 
-            onClick={handleOpenModal} //handle fxn that opens and closes specified modal
+            onClick={onOpen} //handle fxn that opens and closes specified modal
             /> 
             <IconButton icon={<DeleteIcon />} colorScheme='red' 
             onClick={() => handleDeleteExpense(expense._id)} />
@@ -77,7 +85,7 @@ const ExpenseCard = ({expense}) => {
         </Box>
 
         <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
+          <ModalOverlay/>
 
 
           <ModalContent>
@@ -99,10 +107,10 @@ const ExpenseCard = ({expense}) => {
 
             <ModalFooter>
               <Button colorScheme='blue' mr={3} 
-              onClick={() => handleUpdateExpense(expense._id, expense)}>
+              onClick={() => handleUpdateExpense(expense._id, updatedExpense)}>
                 Update
               </Button>
-              <Button variant='ghost'>
+              <Button variant='ghost' onClick={onClose}>
                 Cancel
               </Button>
             </ModalFooter>
