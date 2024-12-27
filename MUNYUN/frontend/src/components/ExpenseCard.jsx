@@ -110,7 +110,7 @@ const ExpenseCard = ({expense}) => {
               onClick={() => handleUpdateExpense(expense._id, updatedExpense)}>
                 Update
               </Button>
-              <Button variant='ghost' onClick={onClose}>
+              <Button variant='ghost' onClick={handleModalClose}>
                 Cancel
               </Button>
             </ModalFooter>
