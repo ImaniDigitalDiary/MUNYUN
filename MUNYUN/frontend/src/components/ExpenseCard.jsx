@@ -51,7 +51,7 @@ const ExpenseCard = ({expense}) => {
   const handleModalClose = () => {
     onClose() //Ensure the modal close state is triggered
     setTimeout(() => {
-      document.activeElement.blue() //Reset focus
+      document.activeElement.blur() //Reset focus
     }, 0)
   }
 
