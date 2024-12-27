@@ -6,27 +6,18 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 
+
+
+// commented out my React Strict Mode in order to allow to render more than one expense card after clicking cancal
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
         <ChakraProvider>
           <App />
         </ChakraProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 
-// import * as React from 'react'
-// import { ChakraProvider } from '@chakra-ui/react'
-// import * as ReactDOM from 'react-dom/client'
-// import App from './App.jsx';
-
-// const rootElement = document.getElementById('root')
-// ReactDOM.createRoot(rootElement).render(
-//   <React.StrictMode>
-//     <ChakraProvider>
-//       <App />
-//     </ChakraProvider>
-//   </React.StrictMode>,
-// )

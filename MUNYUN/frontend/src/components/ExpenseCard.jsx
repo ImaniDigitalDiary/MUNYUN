@@ -48,12 +48,12 @@ const ExpenseCard = ({expense}) => {
   // } 
 
 
-  const handleModalClose = () => {
-    onClose() //Ensure the modal close state is triggered
-    setTimeout(() => {
-      document.activeElement.blur() //Reset focus
-    }, 0)
-  }
+  // const handleModalClose = () => {
+  //   onClose() //Ensure the modal close state is triggered
+  //   setTimeout(() => {
+  //     document.activeElement.blur() //Reset focus
+  //   }, 0)
+  // }
 
   return (
     <Box
@@ -110,7 +110,7 @@ const ExpenseCard = ({expense}) => {
               onClick={() => handleUpdateExpense(expense._id, updatedExpense)}>
                 Update
               </Button>
-              <Button variant='ghost' onClick={handleModalClose}>
+              <Button variant='ghost' onClick={onClose}>
                 Cancel
               </Button>
             </ModalFooter>

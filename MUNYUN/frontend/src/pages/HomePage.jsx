@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Container, VStack, Text, SimpleGrid } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useExpenseTracking } from '../tracking/expense'
 
 // components
 import ExpenseCard from '../components/ExpenseCard'
-import { MdProductionQuantityLimits } from 'react-icons/md'
+// import { MdProductionQuantityLimits } from 'react-icons/md'
 
 
 function HomePage() {
@@ -18,10 +18,7 @@ function HomePage() {
   }, [fetchExpenses])
   console.log('expenses', expenses)
 
-  // Modal controls
-  
-  // const [selectedExpense, setSelectExpense] = useState(null)
-
+ 
 
 
 
