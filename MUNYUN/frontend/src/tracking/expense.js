@@ -48,7 +48,7 @@ export const useExpenseTracking = create((set) => ({
     },
 
     updateExpense: async (eid, updatedExpense) => {
-        const res = await fetch(`/api/expenses/${eid}` , {
+        const res = await fetch(`http://localhost:8000/api/expenses/${eid}` , {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

@@ -29,7 +29,7 @@ function Navbar() {
             fontWeight={'bold'}
             textTransform={'uppercase'}
             textAlign={'center'}
-            bgGradient={'linear(to-r, cyan.400, blue.500)'}
+            bgGradient={'linear(to-r, pink.700, green.300)'}
             bgClip={'text'}
           >
             <Link to={'/'}>Expense List</Link>

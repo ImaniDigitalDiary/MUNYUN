@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, VStack, Text, SimpleGrid, useDisclosure } from '@chakra-ui/react'
+import { Container, VStack, Text, SimpleGrid } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useExpenseTracking } from '../tracking/expense'
 
@@ -19,13 +19,9 @@ function HomePage() {
   console.log('expenses', expenses)
 
   // Modal controls
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [selectedExpense, setSelectExpense] = useState(null)
+  
+  // const [selectedExpense, setSelectExpense] = useState(null)
 
-  const handleOpenModal = (expense) => {
-    setSelectExpense(expense)
-    onOpen()
-  }
 
 
 
@@ -54,13 +50,7 @@ function HomePage() {
           w={'full'}
         >
           {expenses.map((expense) => (
-            <ExpenseCard 
-              key={expense._id} 
-              expense={expense}
-              isOpen={isOpen}
-              onOpen={() => handleOpenModal(expense)}
-              onClose={onClose}
-            />
+            <ExpenseCard key={expense._id} expense={expense} />
           ))}
         </SimpleGrid>
           {/* if there are expenses in the array, then hide the no expense found text */}
