@@ -32,7 +32,7 @@ function Navbar() {
             bgGradient={'linear(to-r, pink.700, green.300)'}
             bgClip={'text'}
           >
-            <Link to={'/'}>Expense List</Link>
+            <Link to={'/'}>MUNYUN</Link>
 
           </Text>
 
