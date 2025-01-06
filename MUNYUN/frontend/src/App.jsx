@@ -4,6 +4,7 @@ import { Box, useColorModeValue } from '@chakra-ui/react'
 import CreatePage from './pages/CreatePage'
 import ExpensePage from './pages/ExpensePage'
 import Navbar from './components/Navbar'
+import ZeroBased from './pages/ZeroBased'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         {/* <Route path='/' element={<ExpensePage />} /> */}
+        <Route path='/' element={<ZeroBased />}/>
         <Route path='/create' element={<CreatePage />} />
       </Routes>
       
