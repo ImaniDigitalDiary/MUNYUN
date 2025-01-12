@@ -38,9 +38,13 @@ function Navbar() {
 
           <HStack spacing={2} alignItems={'center'}>
             <Link to={'/create'}>
-            <Button>
+            Create
+            {/* <Button>
               <PlusSquareIcon fontSize={20} />
-            </Button>
+            </Button> */}
+            </Link>
+            <Link to={'/zero-based'}>
+            ZB
             </Link>
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? <IoMoon /> : <LuSun size='20' />}
