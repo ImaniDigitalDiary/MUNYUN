@@ -9,26 +9,45 @@ function ZeroBased() {
     // fetch expenses from the tracking folder
     const {fetchExpenses, expenses, isLoading, error} = useExpenseTracking()
 
-    const [initialAmount, setInitialAmount] = useState('')
-    const [remainingAmount, setRemainingAmount] = useState('')
-    const [isAmountSet, setIsAmountSet] = useState(false)
+    const [initialAmount, setInitialAmount] = 
+      useState(() => Number(localStorage.getItem('initialAmount')) || '')
+
+    const [remainingAmount, setRemainingAmount] = 
+      useState(() => Number(localStorage.getItem('remainingAmount')) || '')
+
+    const [isAmountSet, setIsAmountSet] = 
+      useState(()=> JSON.parse(localStorage.getItem('isAmountSet')) || false)
+
     const [additionalAmount, setAdditionalAmount] = useState('')
 
     const toast = useToast()
 
-
+    // Fetch expenses from useExpenseTracking
     useEffect(() => {
     fetchExpenses()
     }, [fetchExpenses])
-    console.log('expenses', expenses)
+   
+
 
     // Calculate whenever expenses are added or subtracted from collection - or when budget (initialAmount) changes
     useEffect(() => {
       if (isAmountSet) {
         const totalExpenses = expenses.reduce((sum, expense) => sum + expense.price, 0)
-        setRemainingAmount(initialAmount - totalExpenses)
+        const newRemainingAmount = initialAmount - totalExpenses
+        setRemainingAmount(newRemainingAmount)
+
+        // Update remaining amount in local storage
+        localStorage.setItem('remainingAmount', newRemainingAmount)
       }
     }, [expenses, initialAmount, isAmountSet])
+
+
+    // synch changes in state w/ local storage
+    useEffect(() => {
+      localStorage.setItem['initialAmount', initialAmount]
+      localStorage.setItem['isAmountSet', isAmountSet]
+    }, [initialAmount, isAmountSet]);
+
 
     const handleSetBudget = () => {
       if (isNaN(initialAmount) || initialAmount <= 0) {
@@ -49,8 +68,8 @@ function ZeroBased() {
         status: 'success',
         duration: 3000,
         isClosable: true,
-      });
-  };
+      })
+  }
 
   const handleAddMoney = () => {
     if (isNaN(additionalAmount) || additionalAmount <= 0) {
@@ -63,6 +82,7 @@ function ZeroBased() {
       })
       return;
     }
+  
   const updatedInitialAmount = initialAmount + Number(additionalAmount)
   setInitialAmount(updatedInitialAmount)
   setAdditionalAmount('')
@@ -96,10 +116,9 @@ function ZeroBased() {
             </Button>
             </>
           ) : (
-            <Text>
-              Initial Budget: ${initialAmount}
-            </Text>
+            <Text>Initial Budget: ${initialAmount}</Text>
           )}
+          
           {/* Add Money */}
           {isAmountSet && (
             <>
@@ -120,6 +139,24 @@ function ZeroBased() {
             <Text fontSize='lg' color='green.500' fontWeight='bold'>
               Remaining Budget: ${remainingAmount}
             </Text>
+          )}
+          {isLoading ? ( 
+            <Spinner />
+          ) : error ? (
+            <Text color='red.500'>Failed to load expenses: {error.message}</Text>
+          ) : expenses && expenses.length > 0 ? (
+            <>
+              <Text>
+                Expenses:
+              </Text>
+              {expenses.map((expense, index) => (
+                <Text key={index}>
+                  {expense.name}: ${expense.price}
+                </Text>
+              ))}
+            </>
+          ) :(
+            <Text>No expenses found.</Text>
           )}
         </VStack>
       </Container>

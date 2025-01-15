@@ -69,9 +69,9 @@ function CreatePage() {
             onChange={(e) => setNewExpense({...newExpense, image: e.target.value})}
           />
 
-          <Button colorScheme='blue' onClick={handleAddExpense} w='full'>
-            Add Expense
-          </Button>
+            <Button colorScheme='blue' onClick={handleAddExpense} w='full'>
+              Add Expense
+            </Button>
           </VStack>
 
         </Box>
