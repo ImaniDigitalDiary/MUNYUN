@@ -62,3 +62,17 @@ export const deleteExpense = async (req, res) => {
         res.status(500).json({ success: false, message: 'Server Error' })
     }
 };
+
+export const updateCategory = async (req, res) => {
+    try {
+        const {category} = req.body
+        const updateTheExpense = await Expense.findByIdAndUpdate(
+            req.params.id,
+            {category},
+            {new: true}
+        )
+        res.status(200).json(updateTheExpense)
+    } catch (error) {
+        res.status(500).json({error: 'Failed to update category'})
+    }
+}

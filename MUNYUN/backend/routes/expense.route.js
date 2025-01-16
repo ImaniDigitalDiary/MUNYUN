@@ -13,6 +13,7 @@ router.get('/', getExpenses);
 //CREATE AN EXPENSE 
 router.post('/', createExpense );
 
+// UPDATE AN EXPENSE
 router.put('/:id', updateExpense)
 
 // DELETE AN EXPENSE

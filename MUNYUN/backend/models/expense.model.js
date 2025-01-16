@@ -13,6 +13,7 @@ const expenseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    category: { type: String, default: 'Not yet implemented' },
 }, {
     // createdAt, updatedAt
     timestamps: true
