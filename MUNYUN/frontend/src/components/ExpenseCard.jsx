@@ -119,6 +119,9 @@ const ExpenseCard = ({expense}) => {
                 <Input placeholder='Image URL' name='image' value={updatedExpense.image}
                   onChange={(e) => setUpdatedExpense({ ...updatedExpense, image: e.target.value})}
                 />
+                <Input placeholder='Expense Category' name='category' value={updatedExpense.category}
+                  onChange={(e) => setUpdatedExpense({ ...updatedExpense, category: e.target.value})}
+                />
               </VStack>
             </ModalBody>
 
@@ -131,7 +134,7 @@ const ExpenseCard = ({expense}) => {
                 Cancel
               </Button>
             </ModalFooter>
-          </ModalContent>
+          </ModalContent>a
         </Modal>
     </Box>
   )

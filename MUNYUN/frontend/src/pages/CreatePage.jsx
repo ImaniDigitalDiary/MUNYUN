@@ -2,17 +2,18 @@ import { Button, Container, useColorModeValue, VStack, Heading, Box, Input, useT
 import React from 'react'
 import { useState } from 'react'
 import { useExpenseTracking } from '../tracking/expense'
+import { data } from 'react-router-dom'
 
 
-function CreatePage() {
+function CreatePage( ) {
   const [newExpense, setNewExpense] = useState({
     name: '',
     price: '',
     image: '',
+    category: '',
   })
 
   const toast = useToast()
-
   const {createExpense}=useExpenseTracking()
 
   const handleAddExpense = async() => {
@@ -31,8 +32,11 @@ function CreatePage() {
       status: 'success',
       isClosable: true 
     })
+    // add the new expense to the relevant category for ZeroBased Page
+    onExpenseCreate(newExpense) // pass the newly created expense
     }
-    setNewExpense({name:'', price: '', image: ''})
+    // reset form
+    setNewExpense({name:'', price: '', image: '', category: ''})
   }
   
   return (
@@ -67,6 +71,12 @@ function CreatePage() {
             name='image'
             value={newExpense.image}
             onChange={(e) => setNewExpense({...newExpense, image: e.target.value})}
+          />
+          <Input 
+            placeholder='Expense Category'
+            name='category'
+            value={newExpense.category}
+            onChange={(e) => setNewExpense({...newExpense, category: e.target.value})}
           />
 
             <Button colorScheme='blue' onClick={handleAddExpense} w='full'>

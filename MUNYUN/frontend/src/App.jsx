@@ -6,14 +6,15 @@ import ExpensePage from './pages/ExpensePage'
 import Navbar from './components/Navbar'
 import ZeroBased from './pages/ZeroBased'
 
-function App() {
+
+function App(addNewCategory) {
   return (
     <Box minH={'100vh'} bg={useColorModeValue('gray.100', 'gray.900')}>
       <Navbar />
       <Routes>
         <Route path='/' element={<ExpensePage />} />
         <Route path='/zero-based' element={<ZeroBased />}/>
-        <Route path='/create' element={<CreatePage />} />
+        <Route path='/create' element={<CreatePage onExpenseCreate={addNewCategory}/>} />
       </Routes>
       
   </Box>
