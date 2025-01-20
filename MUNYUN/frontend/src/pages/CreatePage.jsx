@@ -1,11 +1,11 @@
-import { Button, Container, useColorModeValue, VStack, Heading, Box, Input, useToast } from '@chakra-ui/react'
+import { Button, Container, useColorModeValue, VStack, Heading, Box, Input, useToast, Link } from '@chakra-ui/react'
 import React from 'react'
 import { useState } from 'react'
 import { useExpenseTracking } from '../tracking/expense'
-import { data } from 'react-router-dom'
 
 
-function CreatePage( ) {
+
+function CreatePage({onExpenseCreate} ) {
   const [newExpense, setNewExpense] = useState({
     name: '',
     price: '',
@@ -80,7 +80,7 @@ function CreatePage( ) {
           />
 
             <Button colorScheme='blue' onClick={handleAddExpense} w='full'>
-              Add Expense
+              <Link href="/zero-based">Add Expense</Link>
             </Button>
           </VStack>
 
