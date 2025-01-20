@@ -94,31 +94,35 @@ function ZeroBased() {
 
   const handleDragEnd = (result) => {
     const {source, destination} = result
+    // if no destination, exit
     if (!destination) return
 
+    const sourceCategory = source.droppableId
+    const destCategory = destination.droppableId
+
+    //  if source and destination are the same & the index doesn't change, exit
+    if (sourceCategory === destCategory && source.index === destination.index) return
+
+    // clone the current categories to avoid (mutation)
     const updatedCategories = { ...categories }
 
-    // get source & destination items 
-    const sourceItems = Array.from(updatedCategories[source.droppableId])
-    const destItems = Array.from(updatedCategories[destination.droppableId] || [])
-    
-    // move dragged item
+    // Extract from the sourceItems array and remove the dragged item
+    const sourceItems = Array.from(updatedCategories[sourceCategory])
     const [movedItem] = sourceItems.splice(source.index, 1)
+
+    // update the source category in the cloned object
+    updatedCategories[sourceCategory] = sourceItems
+
+    // add the moved item to the destination category
+    const destItems = Array.from(updatedCategories[destCategory] || [])
     destItems.splice(destination.index, 0, movedItem)
 
-    updatedCategories[source.droppableId] = sourceItems
-    updatedCategories[destination.droppableId] = destItems
+    // update the destination category in the cloned object
+    updatedCategories[destCategory] = destItems
 
+    // update the state w/ the modified categories
     setCategories(updatedCategories)
   }
-
-  // const addNewCategory = (expense) => {
-  //   setCategories((prev) => {
-  //     const { category } = expense
-  //     const updatedCategory = prev[category] ? [...prev[category], expense] : [expense]
-  //     return { ...prev, [category]: updatedCategory }
-  //   })
-  // }
 
   return (
     <Container>
