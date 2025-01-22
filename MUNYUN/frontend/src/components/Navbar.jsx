@@ -36,12 +36,15 @@ function Navbar() {
 
           </Text>
 
-          <HStack spacing={2} alignItems={'center'}>
+          <HStack spacing={4} alignItems={'center'}>
             <Link to={'/create'}>
-            Create
+            Create Expense
             {/* <Button>
               <PlusSquareIcon fontSize={20} />
             </Button> */}
+            </Link>
+            <Link to={'/view-expenses'}>
+            View Expenses
             </Link>
             <Link to={'/zero-based'}>
             ZB

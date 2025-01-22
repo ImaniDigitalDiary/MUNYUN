@@ -139,7 +139,7 @@ function ZeroBased() {
             <Button colorScheme="orange" onClick={handleSetBudget}>Set Budget</Button>
           </>
         ) : (
-          <Text>Initial Budget: ${initialAmount}</Text>
+          <Text>Budget Amount: ${initialAmount}</Text>
         )}
 
         {isAmountSet && (

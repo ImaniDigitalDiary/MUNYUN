@@ -12,7 +12,7 @@ function App(addNewCategory) {
     <Box minH={'100vh'} bg={useColorModeValue('gray.100', 'gray.900')}>
       <Navbar />
       <Routes>
-        <Route path='/' element={<ExpensePage />} />
+        <Route path='/view-expenses' element={<ExpensePage />} />
         <Route path='/zero-based' element={<ZeroBased />}/>
         <Route path='/create' element={<CreatePage onExpenseCreate={addNewCategory}/>} />
       </Routes>
