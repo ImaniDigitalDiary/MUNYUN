@@ -1,6 +1,6 @@
 import { useExpenseTracking } from '../tracking/expense'
 import React, { useEffect, useState} from 'react'
-import { Container, VStack, Text, HStack, Heading, Input, useToast, Button, Box } from '@chakra-ui/react'
+import { Container, VStack, Text, HStack, Heading, Input, useToast, Button, Box, SimpleGrid, Flex } from '@chakra-ui/react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 function ZeroBased() {
@@ -155,51 +155,58 @@ function ZeroBased() {
         )}
 
         <DragDropContext onDragEnd={handleDragEnd}>
-          <HStack spacing={6} align="start" mt={6}>
+          <SimpleGrid
+            columns={{ base: 1, sm:2, md: 3, lg:4 }} // 4 columns for larger screens
+            spacing={6} // even spacing b/n items
+            mt={6}
+          >
             {Object.keys(categories).map((category) => (
               <Droppable droppableId={category} key={category}>
                 {(provided) => (
-                  <VStack
+                  <Box
                     {...provided.droppableProps}
                     ref={provided.innerRef}
-                    spacing={4}
-                    align="stretch"
                     bg="gray.50"
                     p={4}
                     borderRadius="md"
                     shadow="sm"
-                    minW="300px"
-                    mt={4}
+                    minH="300px"
+                    display= 'flex'
+                    flexDirection='column'
+                    justifyContent='space-between'
                   >
                     <Heading size="sm" textAlign="center" color="gray.700">
                       {category.toUpperCase()}
                     </Heading>
-                    {categories[category].map((expense, index) => (
-                      <Draggable key={expense._id} draggableId={expense._id} index={index}>
-                        {(provided) => (
-                          <Box
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            ref={provided.innerRef}
-                            bg="white"
-                            p={4}
-                            borderRadius="md"
-                            shadow="sm"
-                            border="1px solid"
-                            borderColor="gray.200"
-                          >
-                            <Text fontWeight="bold">{expense.name}</Text>
-                            <Text>${expense.price}</Text>
-                          </Box>
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </VStack>
+                    <VStack spacing={4} align='stretch' flexGrow={1}>
+                      {categories[category].map((expense, index) => (
+                        <Draggable key={expense._id} draggableId={expense._id} index={index}>
+                          {(provided) => (
+                            <Box
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              ref={provided.innerRef}
+                              bg='white'
+                              p={4}
+                              borderRadius='md'
+                              shadow='sm'
+                              border='1px solid'
+                              borderColor='gray.200'
+                              textAlign='left'
+                            >
+                              <Text fontWeight="bold">{expense.name}</Text>
+                              <Text>${expense.price}</Text>
+                            </Box>
+                          )}
+                        </Draggable>
+                      ))}
+                      {provided.placeholder}
+                    </VStack>
+                  </Box>
                 )}
               </Droppable>
             ))}
-          </HStack>
+          </SimpleGrid>
         </DragDropContext>
       </VStack>
     </Container>
