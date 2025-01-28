@@ -1,7 +1,9 @@
+// IMPORTS
 import { useExpenseTracking } from '../tracking/expense'
 import React, { useEffect, useState} from 'react'
-import { Container, VStack, Text, HStack, Heading, Input, useToast, Button, Box, SimpleGrid, Flex } from '@chakra-ui/react'
+import { Container, VStack, Text, Heading, Input, useToast, Button, Box, SimpleGrid, IconButton } from '@chakra-ui/react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import {ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
 function ZeroBased() {
   const {fetchExpenses, expenses, isLoading, error} = useExpenseTracking()
@@ -11,8 +13,12 @@ function ZeroBased() {
   const [additionalAmount, setAdditionalAmount] = useState('')
   
   const [categories, setCategories] = useState({ uncategorized: expenses || [] })
+  // collapse categories
+  const [collapsedCategories, setCollapsedCategories] = useState({})
   const toast = useToast()
 
+
+// HOOKS
   // fetch expenses
   useEffect(() => {
     fetchExpenses()
@@ -46,6 +52,15 @@ function ZeroBased() {
     localStorage.setItem('initialAmount', initialAmount)
     localStorage.setItem('isAmountSet', isAmountSet)
   }, [initialAmount, isAmountSet])
+
+
+  const toggleCollapse = (category) => {
+    setCollapsedCategories((prev) => ({
+      ...prev,
+      [category]: !prev[category],
+    }))
+  }
+
 
   const handleSetBudget = () => {
     if (isNaN(initialAmount) || initialAmount <= 0) {
@@ -156,9 +171,9 @@ function ZeroBased() {
 
         <DragDropContext onDragEnd={handleDragEnd}>
           <SimpleGrid
-            columns={{ base: 1, sm:2, md: 3, lg:4 }} // 4 columns for larger screens
+            columns={{ base: 1, sm:2, md: 3, lg:4}} // 4 columns for larger screens
             spacing={6} // even spacing b/n items
-            mt={6}
+            mt={10}
           >
             {Object.keys(categories).map((category) => (
               <Droppable droppableId={category} key={category}>
@@ -166,42 +181,69 @@ function ZeroBased() {
                   <Box
                     {...provided.droppableProps}
                     ref={provided.innerRef}
-                    bg="gray.50"
+                    bg='gray.50'
                     p={4}
-                    borderRadius="md"
-                    shadow="sm"
-                    minH="300px"
+                    borderRadius='md'
+                    shadow='sm'
+                    minH='300px'
                     display= 'flex'
                     flexDirection='column'
                     justifyContent='space-between'
+                    minWidth='fit-content'
+                    maxWidth='100%' //prevents box from exceeding container 
+                    width='auto'
+                    overflow='hidden'
                   >
-                    <Heading size="sm" textAlign="center" color="gray.700">
-                      {category.toUpperCase()}
-                    </Heading>
-                    <VStack spacing={4} align='stretch' flexGrow={1}>
-                      {categories[category].map((expense, index) => (
-                        <Draggable key={expense._id} draggableId={expense._id} index={index}>
-                          {(provided) => (
-                            <Box
-                              {...provided.draggableProps}
-                              {...provided.dragHandleProps}
-                              ref={provided.innerRef}
-                              bg='white'
-                              p={4}
-                              borderRadius='md'
-                              shadow='sm'
-                              border='1px solid'
-                              borderColor='gray.200'
-                              textAlign='left'
-                            >
-                              <Text fontWeight="bold">{expense.name}</Text>
-                              <Text>${expense.price}</Text>
-                            </Box>
-                          )}
-                        </Draggable>
-                      ))}
-                      {provided.placeholder}
-                    </VStack>
+                    {/* <Box display='flex' justifyContent='space-between' alignItems='center'> */}
+                      <Heading 
+                        size='sm' 
+                        textAlign='center'
+                        color='gray.700'
+                        textOverflow='ellipsis'
+                        whiteSpace='nowrap'
+                        // whiteSpace='normal'
+                        wordBreak='break-word'
+                        paddingX={-1}
+                        overflow='hidden'
+                        width='fit-content'
+                        margin='0 auto'
+                      >
+                        {category.toUpperCase()}
+                      </Heading>
+                      {/* <IconButton 
+                        icon={collapsedCategories[category] ? <ChevronDownIcon /> : <ChevronUpIcon />}
+                        aria-label={`Toggle ${category}`}
+                        size='sm'
+                        onClick={() => toggleCollapsedCategories(category)}
+                      /> */}
+                    {/* </Box> */}
+                    {/* {!collapsedCategories[category] && ( */}
+                      <VStack spacing={4} align='stretch' flexGrow={1} overflow='auto'>
+                        {categories[category].map((expense, index) => (
+                          <Draggable key={expense._id} draggableId={expense._id} index={index}>
+                            {(provided) => (
+                              <Box
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                ref={provided.innerRef}
+                                bg='white'
+                                p={4}
+                                borderRadius='md'
+                                shadow='sm'
+                                border='1px solid'
+                                borderColor='gray.200'
+                                textAlign='left'
+                              >
+                                <Text fontWeight="bold">{expense.name}</Text>
+                                <Text>${expense.price}</Text>
+                              </Box>
+                            )}
+                          </Draggable>
+                        ))}
+                        {provided.placeholder}
+                      </VStack>
+                    {/* )} */}
+
                   </Box>
                 )}
               </Droppable>
