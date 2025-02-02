@@ -30,7 +30,7 @@ function ZeroBased() {
         const category = expense.category || 'uncategorized'
         acc[category] = acc[category] ? [...acc[category], expense] : [expense]
         return acc
-      },
+      }, 
       {uncategorized: []}
     );
     setCategories(categorizedExpenses)
@@ -201,7 +201,7 @@ function ZeroBased() {
                         color='gray.700'
                         textOverflow='ellipsis'
                         whiteSpace='nowrap'
-                        // whiteSpace='normal'
+                        // whiteSpace='normal'  
                         wordBreak='break-word'
                         paddingX={-1}
                         overflow='hidden'

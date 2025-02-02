@@ -1,4 +1,4 @@
-import { Button, Container, useColorModeValue, VStack, Heading, Box, Input, useToast, Link } from '@chakra-ui/react'
+import { Button, Container, useColorModeValue, VStack, Heading, Box, Input, useToast, Link , Select} from '@chakra-ui/react'
 import React from 'react'
 import { useState } from 'react'
 import { useExpenseTracking } from '../tracking/expense'
@@ -13,11 +13,23 @@ function CreatePage({onExpenseCreate} ) {
     category: '',
   })
 
+  const [customCategory, setCustomCategory] = useState('')
+  const [useCustomCategory, setUseCustomCategory] = useState(false)
+
+  const categories = ['Rent', 'Utilities', 'Groceries', 'Transporation', 'Entertainment', ]
+
   const toast = useToast()
   const {createExpense}=useExpenseTracking()
 
   const handleAddExpense = async() => {
-   const {success, message} = await createExpense(newExpense)
+    const expenseToSave = {
+      ...newExpense,
+      category: useCustomCategory ? customCategory : newExpense.category,
+    }
+
+  //  const {success, message} = await createExpense(newExpense)
+  const {success, message} = await createExpense(expenseToSave)
+
     if (!success) {
       toast({
         title: 'Error',
@@ -32,12 +44,32 @@ function CreatePage({onExpenseCreate} ) {
       status: 'success',
       isClosable: true 
     })
+
     // add the new expense to the relevant category for ZeroBased Page
-    onExpenseCreate(newExpense) // pass the newly created expense
-    }
-    // reset form
+    // onExpenseCreate(newExpense) // pass the newly created expense****
+    onExpenseCreate(expenseToSave)
+
+      // reset form
     setNewExpense({name:'', price: '', image: '', category: ''})
+    setCustomCategory('')
+    setUseCustomCategory(false)
+    }
   }
+
+  const handleCategoryChange = (e) => {
+    const value = e.target.value
+    console.log('Selecting category:', value)
+    setNewExpense({ ...newExpense, category: value })
+
+    if (value === 'Custom') {
+      setUseCustomCategory(true)
+    } else {
+      setUseCustomCategory(false)
+      setCustomCategory('')
+    }
+  }
+
+
   
   return (
     <Container maxW={'container.sm'}>
@@ -71,13 +103,31 @@ function CreatePage({onExpenseCreate} ) {
             name='image'
             value={newExpense.image}
             onChange={(e) => setNewExpense({...newExpense, image: e.target.value})}
-          />
-          <Input 
-            placeholder='Expense Category'
-            name='category'
+          />  
+          <Select 
+            placeholder='Select Expense Category'
+            name={'category'}
             value={newExpense.category}
-            onChange={(e) => setNewExpense({...newExpense, category: e.target.value})}
-          />
+            // onChange={(e) => setNewExpense({...newExpense, category: e.target.value})}
+            onChange={handleCategoryChange}
+          >
+            {categories.map((cat, index) => (
+              <option key={index} value={cat}>
+                {cat}
+              </option>
+            ))}
+            
+            <option value='Custom'>Custom</option>
+          </Select>
+          {useCustomCategory && (
+            <Input 
+              mt={2}
+              placeholder='Enter Custom Category'
+              value={customCategory}
+              onChange={(e) => setCustomCategory(e.target.value)}
+            />
+          )}
+      
 
             <Button colorScheme='blue' onClick={handleAddExpense} w='full'>
               <Link href="/zero-based">Add Expense</Link>
