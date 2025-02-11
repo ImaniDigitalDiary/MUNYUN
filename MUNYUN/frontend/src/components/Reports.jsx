@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts'
+import * as d3 from 'd3-scale-chromatic'
 
 const Reports = () => {
     const [data, setData] = useState([])
@@ -12,7 +13,7 @@ const Reports = () => {
     }, [])
 
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
+const multipleColors = d3.interpolateRainbow
 
 return (
     <div>
@@ -31,7 +32,7 @@ return (
             >
             {/* Map through the data and assign colors dynamically */}
             {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                <Cell key={`cell-${index}`} fill={multipleColors(index /data.length)} />
             ))}
             </Pie>
             
