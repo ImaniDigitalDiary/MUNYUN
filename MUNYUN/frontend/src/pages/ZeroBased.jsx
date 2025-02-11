@@ -28,6 +28,7 @@ function ZeroBased() {
     const categorizedExpenses = expenses.reduce(
       (acc, expense) => {
         const category = expense.category || 'uncategorized'
+        // const category = expense.category
         acc[category] = acc[category] ? [...acc[category], expense] : [expense]
         return acc
       }, 
