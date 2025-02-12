@@ -16,7 +16,7 @@ import Navbar from './components/Navbar'
 function App(addNewCategory) {
   return (
     <Box minH={'100vh'} bg={useColorModeValue('gray.100', 'gray.900')}>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/view-expenses' element={<ExpensePage />} />

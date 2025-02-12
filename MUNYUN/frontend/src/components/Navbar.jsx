@@ -7,6 +7,8 @@ import { IoMoon } from 'react-icons/io5'
 import { LuSun } from 'react-icons/lu'
 // import { useExpenseTracking } from '../tracking/expense'
 
+import homeLogo from '../images/logoipsum-345.svg'
+
 
 
 function Navbar() {
@@ -14,7 +16,7 @@ function Navbar() {
 
   return (
     <div>
-      <Container maxW={'1140px'} px={4}>
+      <Container maxW={'2560px'} px={4}>
         <Flex
           h={16}
           alignItems={'center'}
@@ -32,7 +34,7 @@ function Navbar() {
             bgGradient={'linear(to-r, pink.700, green.300)'}
             bgClip={'text'}
           >
-            <Link to={'/'}>MUNYUN</Link>
+            <Link to={'/'}><img src={homeLogo} /></Link>
 
           </Text>
 
