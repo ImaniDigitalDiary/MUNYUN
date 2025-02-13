@@ -8,6 +8,8 @@ import CreatePage from './pages/CreatePage'
 import ExpensePage from './pages/ExpensePage'
 import ZeroBased from './pages/ZeroBased'
 
+import '../src/index.css'
+
 // COMPONENTS
 import Navbar from './components/Navbar'
 
@@ -15,7 +17,7 @@ import Navbar from './components/Navbar'
 
 function App(addNewCategory) {
   return (
-    <Box minH={'100vh'} bg={useColorModeValue('gray.100', 'gray.900')}>
+    <Box className='appCont' height={'100vh'} bg={useColorModeValue('gray.100', 'gray.900')}>
       {/* <Navbar /> */}
       <Routes>
         <Route path='/' element={<HomePage />} />

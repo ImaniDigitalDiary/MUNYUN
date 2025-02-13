@@ -48,7 +48,14 @@ const Reports = () => {
                 >
                 {/* Map through the data and assign colors dynamically */}
                 {data.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={getPinkPurplePalette(index, data.length)} />
+                    <Cell 
+                        key={`cell-${index}`} 
+                        fill={getPinkPurplePalette(index, data.length)} 
+                        style={{
+                            filter: 'drop-shadow(6px 5px 8px rgba(195, 21, 152, 0.71))', // adds a shadow effect to each pie slice
+                            // transform: `scale(${index % 2 === 0 ? 1.1 : 1})`, // helps for each pie slice to stand out
+                        }}
+                    />
                 ))}
                 </Pie>
                 

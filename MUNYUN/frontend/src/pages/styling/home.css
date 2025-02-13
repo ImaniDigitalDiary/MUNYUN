@@ -1,11 +1,18 @@
 .homePage {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    /* grid-template-rows: repeat(5, 1fr); */
+    grid-template-rows: auto;
+    min-height: 100vh;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 
-    /* background-color: #45061f; */
+    background-color: #fca5a5;
+
+}
+
+.navbar {
+    border: solid 10px #fca5a5;
 }
 
 .div1 {

@@ -15,7 +15,7 @@ function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode() 
 
   return (
-    <div>
+    <div className='navbar'>
       <Container maxW={'2560px'} px={4}>
         <Flex
           h={16}
