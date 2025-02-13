@@ -1,6 +1,7 @@
 // import React from 'react'
 import { Box } from '@chakra-ui/react'
 import './styling/home.css'
+import PinkFlower from '../images/3d-Pink-Flower.jpg'
 
 
 import Navbar from '../components/Navbar'
@@ -15,6 +16,9 @@ function HomePage() {
     <Navbar />
     <div className='homePage'>
       <div className="div1">
+        <img src={PinkFlower}/>
+        <img src={PinkFlower}/>
+        <img src={PinkFlower}/>
         {/* <Box background='pink.400' width='100%' padding={4} color='white'>
           Box 1
         </Box>

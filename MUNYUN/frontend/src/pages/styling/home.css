@@ -7,12 +7,12 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 
-    background-color: #fca5a5;
+    background-color: #eeacce;
 
 }
 
 .navbar {
-    border: solid 10px #fca5a5;
+    
 }
 
 .div1 {
@@ -21,7 +21,7 @@
     flex-direction: column;
     /* justify-content: space-between; */
 
-    background-color: #f472b6;
+    background-color: #eeacce;
 }
 
 .div2 {
