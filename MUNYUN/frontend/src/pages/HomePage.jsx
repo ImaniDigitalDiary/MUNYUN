@@ -5,6 +5,7 @@ import PinkFlower from '../images/3d-Pink-Flower.jpg'
 
 
 import Navbar from '../components/Navbar'
+import MyCalendar from '../components/Calendar'
 import Reports from '../components/Reports'
 
 
@@ -19,7 +20,8 @@ function HomePage() {
         <Navbar />
       </div>
       <div className='div2'>
-        Div2
+        <MyCalendar 
+        />
       </div>
       
 
