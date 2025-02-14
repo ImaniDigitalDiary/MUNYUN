@@ -13,37 +13,21 @@ import Reports from '../components/Reports'
 function HomePage() {
   return (
     <div className='homeMainCont'>
-    <Navbar />
+    
     <div className='homePage'>
-      <div className='div1'>
-        <div className="flowerCont">
-          <img src={PinkFlower} className='flower'/>
-          <a href="link.html" class="link">Click link</a>
-        </div>
-        <div className="flowerCont">
-          <img src={PinkFlower} className='flower'/>
-          <a href="link.html" class="link">Click link</a>
-        </div>
-        <div className="flowerCont">
-          <img src={PinkFlower} className='flower'/>
-          <a href="link.html" class="link">Click link</a>
-        </div>
-        <div className="flowerCont">
-          <img src={PinkFlower} className='flower'/>
-          <a href="link.html" class="link">Click link</a>
-        </div>
+      <div className="div1">
+        <Navbar />
+      </div>
+      <div className='div2'>
+        Div2
       </div>
       
 
-      <div className="div2">Div 2</div>
-
-      <div className="div3">Div 3</div>
+      <Box  bg='bg' shadow='md' borderRadius='md' className="div3">This is a random quote about life or finances to keep user in a positive mindset.</Box>
 
       <div className="div4">Expense Report<Reports /></div>
 
       <div className="div5">Div 5</div>
-
-      <div className="div6">Div 6</div>
     </div>
     </div>
 

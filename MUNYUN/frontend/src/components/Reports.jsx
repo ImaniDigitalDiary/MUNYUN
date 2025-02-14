@@ -18,7 +18,7 @@ const Reports = () => {
 
     const getPinkPurplePalette = (index, totalColors) => {
         // function to generate multiple pink shades for the pie chart without repeating the same color pink. starting from lightpink to darkpink
-        const pinkPalatte = d3.interpolateRgb('#ffc0cb', '#8b005e') // light pink to dark pink
+        const pinkPalatte = d3.interpolateRgb('#ff8da1', '#8b005e') // medium pink to dark pink
         const purplePalette = d3.interpolateRgb('#d88fd8', '#4b0082') // light purple to dark purple
 
         // create a color palette that combines both pink and purple palettes

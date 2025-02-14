@@ -8,6 +8,7 @@ import { LuSun } from 'react-icons/lu'
 // import { useExpenseTracking } from '../tracking/expense'
 
 import homeLogo from '../images/logoipsum-345.svg'
+import PinkFlower from '../images/3d-Pink-Flower.jpg'
 
 
 
@@ -18,7 +19,7 @@ function Navbar() {
     <div className='navbar'>
       <Container maxW={'2560px'} px={4}>
         <Flex
-          h={16}
+          
           alignItems={'center'}
           justifyContent={'space-between'}
           flexDir={{
@@ -38,12 +39,9 @@ function Navbar() {
 
           </Text>
 
-          <HStack spacing={4} alignItems={'center'}>
+          {/* <HStack spacing={4} alignItems={'center'}>
             <Link to={'/create'}>
             Create Expense
-            {/* <Button>
-              <PlusSquareIcon fontSize={20} />
-            </Button> */}
             </Link>
             <Link to={'/view-expenses'}>
             View Expenses
@@ -54,9 +52,33 @@ function Navbar() {
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? <IoMoon /> : <LuSun size='20' />}
             </Button>
+          </HStack> */}
+
+          <HStack>
+            <div className="flowerCont">
+              <img src={PinkFlower} className='flower'/>
+              <Link to={'/create'} class="link">Create an Expense</Link>
+            </div>
+            <div className="flowerCont">
+              <img src={PinkFlower} className='flower'/>
+              <Link to={'/view-expenses'} class="link">View Expenses</Link>
+            </div>
+            <div className="flowerCont">
+              <img src={PinkFlower} className='flower'/>
+              <Link href="link.html" class="link">Click link</Link>
+            </div>
+            <div className="flowerCont">
+              <img src={PinkFlower} className='flower'/>
+              <Link href="link.html" class="link">Click link</Link>
+            </div>
+            <div className="flowerCont">
+              <img src={PinkFlower} className='flower'/>
+              <Link href="link.html" class="link">Click link</Link>
+            </div>
           </HStack>
 
         </Flex>
+        
 
       </Container>
     </div>
