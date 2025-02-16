@@ -8,7 +8,7 @@ import CreatePage from './pages/CreatePage'
 import ExpensePage from './pages/ExpensePage'
 import ZeroBased from './pages/ZeroBased'
 
-import '../src/index.css'
+import './index.css'
 
 // COMPONENTS
 import Navbar from './components/Navbar'

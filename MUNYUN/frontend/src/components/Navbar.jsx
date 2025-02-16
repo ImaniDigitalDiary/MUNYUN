@@ -8,7 +8,7 @@ import { LuSun } from 'react-icons/lu'
 // import { useExpenseTracking } from '../tracking/expense'
 
 import homeLogo from '../images/logoipsum-345.svg'
-import PinkFlower from '../images/3d-Pink-Flower.jpg'
+import PinkFlower from '../images/3d-Pink-Flower.png'
 
 
 
@@ -35,7 +35,7 @@ function Navbar() {
             bgGradient={'linear(to-r, pink.700, green.300)'}
             bgClip={'text'}
           >
-            <Link to={'/'}><img src={homeLogo} /></Link>
+            <Link to={'/'}><img src={homeLogo} className='homeLogo' /></Link>
 
           </Text>
 
@@ -57,24 +57,25 @@ function Navbar() {
           <HStack>
             <div className="flowerCont">
               <img src={PinkFlower} className='flower'/>
-              <Link to={'/create'} class="link">Create an Expense</Link>
+              <Link to={'/create'} className="link">Create an Expense</Link>
             </div>
             <div className="flowerCont">
               <img src={PinkFlower} className='flower'/>
-              <Link to={'/view-expenses'} class="link">View Expenses</Link>
+              <Link to={'/view-expenses'} className="link">View Expenses</Link>
             </div>
             <div className="flowerCont">
               <img src={PinkFlower} className='flower'/>
-              <Link href="link.html" class="link">Click link</Link>
+              <Link href="link.html" className="link">Click link</Link>
             </div>
             <div className="flowerCont">
               <img src={PinkFlower} className='flower'/>
-              <Link href="link.html" class="link">Click link</Link>
+              <Link href="link.html" className="link">Click link</Link>
             </div>
             <div className="flowerCont">
               <img src={PinkFlower} className='flower'/>
-              <Link href="link.html" class="link">Click link</Link>
+              <Link href="link.html" className="link">Click link</Link>
             </div>
+            
           </HStack>
 
         </Flex>

@@ -1,7 +1,8 @@
 // import React from 'react'
 import { Box } from '@chakra-ui/react'
 import './styling/home.css'
-import PinkFlower from '../images/3d-Pink-Flower.jpg'
+import PinkFlower from '../images/3d-Pink-Flower.png'
+// import '../index.css'
 
 
 import Navbar from '../components/Navbar'
@@ -13,7 +14,7 @@ import Reports from '../components/Reports'
 
 function HomePage() {
   return (
-    <div className='homeMainCont'>
+    <div id='homeMainCont'>
     
     <div className='homePage'>
       <div className="div1">
@@ -24,8 +25,16 @@ function HomePage() {
         />
       </div>
       
+      {/* <div className="testDiv"> */}
+        <div bg='#ffc0cb' shadow='md' className="div3">
+          Generated inspirational quote.
+        </div>
 
-      <Box  bg='bg' shadow='md' borderRadius='md' className="div3">This is a random quote about life or finances to keep user in a positive mindset.</Box>
+        {/* <Box  bg='bg' shadow='md' borderRadius='md' className="dividk">
+          This is a random quote about life or finances to keep user in a positive mindset.
+        </Box> */}
+      {/* </div> */}
+      
 
       <div className="div4">Expense Report<Reports /></div>
 
