@@ -2,24 +2,30 @@ import express from 'express';
 
 import { createExpense, deleteExpense, getExpenses, updateExpense, updateCategory, getExpenseReport } from '../controllers/expense.controller.js';
 
-const router = express.Router();
+const expenseRouter = express.Router();
 
 // GET ALL EXPENSES
-router.get('/', getExpenses);
+expenseRouter.get('/', getExpenses);
+
 
 //CREATE AN EXPENSE 
-router.post('/', createExpense );
+expenseRouter.post('/', createExpense );
+
 
 // UPDATE AN EXPENSE
-router.put('/:id', updateExpense)
+expenseRouter.put('/:id', updateExpense)
+
 
 // DELETE AN EXPENSE
-router.delete('/:id', deleteExpense ) //:id means it will be dynamic and can be any value the user passes
+expenseRouter.delete('/:id', deleteExpense ) //:id means it will be dynamic and can be any value the user passes
+
 
 // Update expense category
-router.put('/update-category/:id', updateCategory)
+expenseRouter.put('/update-category/:id', updateCategory)
+
 
 // Reporting route to retrieve aggregated data for charting purposes
-router.get('/report', getExpenseReport)
+expenseRouter.get('/report', getExpenseReport)
 
-export default router;
+
+export default expenseRouter;
