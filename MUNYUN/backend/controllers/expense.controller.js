@@ -76,3 +76,27 @@ export const updateCategory = async (req, res) => {
         res.status(500).json({error: 'Failed to update category'})
     }
 }
+
+
+export const getExpenseReport = async (req, res) => {
+   try {
+    const reportData = await Expense.aggregate([
+      {
+        $group: {
+          _id: "$category",
+          total: { $sum: "$price" }
+        }
+      }
+    ]);
+
+    const formattedData = reportData.map(item => ({
+      category: item._id,
+      value: item.total,
+    }));
+
+    res.json(formattedData);
+  } catch (error) {
+    console.error('Error fetching report data:', error);
+    res.status(500).json({ message: 'Failed to generate report' });
+  }
+};

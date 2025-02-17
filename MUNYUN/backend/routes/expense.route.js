@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { createExpense, deleteExpense, getExpenses, updateExpense, updateCategory } from '../controllers/expense.controller.js';
+import { createExpense, deleteExpense, getExpenses, updateExpense, updateCategory, getExpenseReport } from '../controllers/expense.controller.js';
 
 const router = express.Router();
 
