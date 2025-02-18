@@ -21,9 +21,9 @@ function App(addNewCategory) {
       {/* <Navbar /> */}
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/view-expenses' element={<ExpensePage />} />
-        <Route path='/zero-based' element={<ZeroBased />}/>
-        <Route path='/create' element={<CreatePage onExpenseCreate={addNewCategory}/>} />
+        <Route path='/expenses/view-expenses' element={<ExpensePage />} />
+        <Route path='/expenses/zero-based' element={<ZeroBased />}/>
+        <Route path='/expenses/create' element={<CreatePage onExpenseCreate={addNewCategory}/>} />
       </Routes>
       
   </Box>

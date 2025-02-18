@@ -36,7 +36,7 @@ function HomePage() {
       {/* </div> */}
       
 
-      <div className="div4">Expense Report<Reports /></div>
+      <div className="div4"><Reports /></div>
 
       <div className="div5">Div 5</div>
     </div>

@@ -57,7 +57,7 @@ function Navbar() {
           <HStack>
             <div className="flowerCont">
               <img src={PinkFlower} className='flower'/>
-              <Link to={'/create'} className="link">Create an Expense</Link>
+              <Link to={'/expenses/create'} className="link">Create an Expense</Link>
             </div>
             <div className="flowerCont">
               <img src={PinkFlower} className='flower'/>
