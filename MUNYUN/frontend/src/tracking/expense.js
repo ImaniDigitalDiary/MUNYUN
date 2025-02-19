@@ -8,7 +8,7 @@ export const useExpenseTracking = create((set) => ({
         if (!newExpense.name || !newExpense.image || !newExpense.price) {
             return {success: false, message: 'Please fill in all the required information'}
         }
-        const res = await fetch('http://localhost:8000/api/expenses', {
+        const res = await fetch('http://localhost:8000/api/expenses/', {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -16,10 +16,7 @@ export const useExpenseTracking = create((set) => ({
             },
             body: JSON.stringify(newExpense),
         })
-        // .then(response => response.json())
-        // .then(data => console.log(data))
-        // .catch(err => console.error(err))
-        // extract the data
+
         const data = await res.json()
         set((state) => ({ expenses: [...state.expenses, data.data] }))
         return { success: true, message: 'Expense created successfully'}
@@ -27,7 +24,7 @@ export const useExpenseTracking = create((set) => ({
 
     // send request to endpoint and grab the expenses
     fetchExpenses: async () => {
-        const res = await fetch('http://localhost:8000/api/expenses') //fetch the endpoint
+        const res = await fetch('http://localhost:8000/api/expenses/') //fetch the endpoint
         const data = await res.json() //extract the data
         set({ expenses: data.data}) //returning the data
     },

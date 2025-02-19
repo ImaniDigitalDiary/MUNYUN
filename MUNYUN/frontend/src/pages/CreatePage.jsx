@@ -47,7 +47,7 @@ function CreatePage({onExpenseCreate} ) {
 
     // add the new expense to the relevant category for ZeroBased Page
     // onExpenseCreate(newExpense) // pass the newly created expense****
-    onExpenseCreate(expenseToSave)
+    // onExpenseCreate(expenseToSave)
 
       // reset form
     setNewExpense({name:'', price: '', image: '', category: ''})
