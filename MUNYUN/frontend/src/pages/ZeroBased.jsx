@@ -5,6 +5,9 @@ import { Container, VStack, Text, Heading, Input, useToast, Button, Box, SimpleG
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import {ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 
+// COMPONENTS
+import Navbar from '../components/Navbar'
+
 function ZeroBased() {
   const {fetchExpenses, expenses, isLoading, error} = useExpenseTracking()
   const [initialAmount, setInitialAmount] = useState(() => Number(localStorage.getItem('initialAmount')) || 0)
@@ -141,6 +144,8 @@ function ZeroBased() {
   }
 
   return (
+    <>
+    <Navbar />
     <Container>
       <Heading>Zero-Based Budgeting</Heading>
       <VStack>
@@ -160,6 +165,7 @@ function ZeroBased() {
 
         {isAmountSet && (
           <>
+          
             <Input
               placeholder="Add Money to Budget"
               value={additionalAmount}
@@ -253,6 +259,7 @@ function ZeroBased() {
         </DragDropContext>
       </VStack>
     </Container>
+    </>
   )
 }
 

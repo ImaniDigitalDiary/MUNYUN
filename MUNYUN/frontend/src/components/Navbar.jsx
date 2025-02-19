@@ -65,7 +65,7 @@ function Navbar() {
             </div>
             <div className="flowerCont">
               <img src={PinkFlower} className='flower'/>
-              <Link href="link.html" className="link">Click link</Link>
+              <Link to={'/expenses/zero-based'} className="link">ZB</Link>
             </div>
             <div className="flowerCont">
               <img src={PinkFlower} className='flower'/>

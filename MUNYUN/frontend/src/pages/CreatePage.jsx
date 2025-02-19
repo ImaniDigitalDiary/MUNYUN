@@ -133,7 +133,7 @@ function CreatePage({onExpenseCreate} ) {
       
 
             <Button colorScheme='blue' onClick={handleAddExpense} w='full'>
-              <Link href="/zero-based">Add Expense</Link>
+              <Link href="/expenses/zero-based">Add Expense</Link>
             </Button>
           </VStack>
 
