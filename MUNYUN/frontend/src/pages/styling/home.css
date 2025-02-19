@@ -2,10 +2,6 @@
     background-color: #f7d6e7;
 }
 
-/* #homeMainCont {
-    background-color: #f7d6e7;
-} */
-
 .homePage {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -14,16 +10,11 @@
     min-height: 100vh;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-
     background-color: #f7d6e7;
-    /* background-color: #f7d6e7; */
-    /* padding: 50px; */
-
 }
 
 .homeLogo {
     width: 400px;
-    /* max-width: 400px; */
     padding-left: 65px;
 }
 
@@ -81,6 +72,8 @@
     }
 /* DIV 1 STYLES: END */
 
+
+/*  DIV 2 STYLES: START */
 .div2 {
     grid-area: 2 / 1 / 5 / 3;
     /* margin-left: 30px; */
@@ -89,35 +82,38 @@
     background-color: #f7d6e7;
 
 }
-.calendarCont {
-    width: 100%;
-    /* Adjust width */
-    max-width: 600px;
-    /* Prevent it from being too large */
-    margin: auto;
-    /* Center it */
-    padding: 40px;
-    background-color: #ffc0cb;
-    /* Optional: Give it a background */
-    border-radius: 10px;
-    /* Optional: Add rounded corners */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    /* Optional: Add a shadow */
-}
+    /* Calender Styling */
+    .calenderMainCont {
+        display: flex;
+        flex-direction: column;
+    }
+    .createEventBtn {
+        background-color: #ffc0cb;
+        width: 350px;
+        height: 40px;
+        align-self: center;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+    .calendarCont {
+        /* width: 100%; */
+        max-width: 500px;
+        margin: auto;
+        padding: 40px;
+        background-color: #ffc0cb;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+/* DIV 2 STYLES: END */
 
-.testDiv {
-    background-color: #ffc0cb;
-}
+
+/* DIV 3 STYLES: START */
 .div3 {
     grid-area: 2 / 3 / 3 / 5;
     justify-items: center;
-
     background-color: #ffc0cb !important;
-    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
     border-radius: 12px;
-    /* height: 100%;   */
     align-content: center;
-    /* overflow: hidden; */
     margin: 0 10px 0 10px;
     text-align: center;
 }
@@ -127,20 +123,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-
     background-color: #f7d6e7;
-    /* text-align: center; */
-    /* align-content: center; */
-    
 }
 
 .div5 {
     grid-area: 2 / 5 / 5 / 6;
     display: grid;
-
-    /* padding-left: 0 20px 0 2px; */
     background-color: #ffc0cb;
-    /* padding: 200px; */
     margin: 0 30px 50px 0px;
     text-align: center;
     border-radius: 12px;
@@ -149,5 +138,4 @@
 
 .dividk {
     background-color: #ffc0cb;
-    /* margin-left: 10px; */
 }

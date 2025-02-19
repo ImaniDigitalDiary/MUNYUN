@@ -3,7 +3,8 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Modal, Button, Form } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import '../pages/styling/home.css'
 
 import axios from 'axios'; // import axios for API calls
 
@@ -36,22 +37,6 @@ const MyCalendar = () => {
 
   fetchEvents();
 }, []);
-  // useEffect(() => {
-  //   const fetchEvents = async () => {
-  //     try {
-  //       const res = await axios.get('http://localhost:8000/api/events')
-  //       setEvents(res.data.data) //Updates state with the fetched events
-  //     } catch (error) {
-  //       console.error('Error fetching events:', error)
-  //     }
-  //   }
-  //   fetchEvents()
-  // }, []);
-
-  // Save events to localStorage whenever they change
-  // useEffect(() => {
-  //   localStorage.setItem("events", JSON.stringify(events));
-  // }, [events]);
 
 
 
@@ -106,8 +91,8 @@ const MyCalendar = () => {
   });
 
   return (
-    <div className="container mt-4">
-      <Button variant='primary' onClick={handleShow}>
+    <div className="calenderMainCont mt-4">
+      <Button className='createEventBtn' variant='primary' onClick={handleShow}>
         Create Event
       </Button>
 
