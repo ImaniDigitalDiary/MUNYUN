@@ -5,7 +5,11 @@ import { useExpenseTracking } from '../tracking/expense'
 
 // components
 import ExpenseCard from '../components/ExpenseCard'
-// import { MdProductionQuantityLimits } from 'react-icons/md'
+import Navbar from '../components/Navbar'
+
+// styling
+import './styling/expense-page.css'
+
 
 
 function ExpensePage() {
@@ -24,7 +28,9 @@ function ExpensePage() {
 
 
   return (
-      <Container maxW='container.xl' py={12}>
+      <div className='expensePage'>
+      <Navbar />
+      <Container  maxW='container.xl' py={12}>
         <VStack spacing={8}>
         <Text
           fontSize={'30'}
@@ -63,6 +69,7 @@ function ExpensePage() {
           )}
         </VStack>
       </Container>
+      </div>
   )
 }
 

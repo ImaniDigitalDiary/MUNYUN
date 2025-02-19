@@ -20,16 +20,33 @@ const MyCalendar = () => {
 
   // Fetch events from backend when component mounts
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const res = await axios.get('http://localhost:8000/api/events')
-        setEvents(res.data.data) //Updates state with the fetched events
-      } catch (error) {
-        console.error('Error fetching events:', error)
-      }
+  const fetchEvents = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/api/events");
+      const formattedEvents = res.data.data.map(event => ({
+        ...event,
+        start: new Date(event.start), // Ensure it's a Date object
+        end: new Date(event.end),
+      }));
+      setEvents(formattedEvents);
+    } catch (error) {
+      console.error("Error fetching events:", error);
     }
-    fetchEvents()
-  }, []);
+  };
+
+  fetchEvents();
+}, []);
+  // useEffect(() => {
+  //   const fetchEvents = async () => {
+  //     try {
+  //       const res = await axios.get('http://localhost:8000/api/events')
+  //       setEvents(res.data.data) //Updates state with the fetched events
+  //     } catch (error) {
+  //       console.error('Error fetching events:', error)
+  //     }
+  //   }
+  //   fetchEvents()
+  // }, []);
 
   // Save events to localStorage whenever they change
   // useEffect(() => {
