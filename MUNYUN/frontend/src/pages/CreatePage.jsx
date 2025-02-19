@@ -3,7 +3,8 @@ import React from 'react'
 import { useState } from 'react'
 import { useExpenseTracking } from '../tracking/expense'
 
-
+// COMPONENTS
+import Navbar from '../components/Navbar'
 
 function CreatePage({onExpenseCreate} ) {
   const [newExpense, setNewExpense] = useState({
@@ -72,7 +73,9 @@ function CreatePage({onExpenseCreate} ) {
 
   
   return (
-    <Container maxW={'container.sm'}>
+    <div>
+      <Navbar />
+      <Container maxW={'container.sm'}>
       <VStack
         spacing={8}
       >
@@ -137,7 +140,8 @@ function CreatePage({onExpenseCreate} ) {
         </Box>
       </VStack>
 
-    </Container>
+      </Container>
+    </div>
   )
 }
 
