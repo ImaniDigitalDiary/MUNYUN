@@ -111,7 +111,7 @@ const MyCalendar = () => {
         Create Event
       </Button>
 
-    <Calendar 
+    <Calendar className='calendarCont'
     localizer={localizer} 
     events={events} 
     startAccessor="start" 
