@@ -3,10 +3,13 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Modal, Button, Form } from 'react-bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import '../pages/styling/home.css'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../pages/styling/home.css'
 import axios from 'axios'; // import axios for API calls
+
+
+
+
 
 const localizer = momentLocalizer(moment);
 
@@ -91,8 +94,18 @@ const MyCalendar = () => {
   });
 
   return (
-    <div className="calenderMainCont mt-4">
-      <Button className='createEventBtn' variant='primary' onClick={handleShow}>
+    <div className='container mt-4'>
+      <style type='text/css'>
+       {`
+        .createEventBtn {
+          background-color: #ffc0cb;
+          border: none;
+        }
+       
+       `}
+      </style>
+      <div className="calenderMainCont">
+        <Button className='createEventBtn' variant='primary' onClick={handleShow}>
         Create Event
       </Button>
 
@@ -106,6 +119,9 @@ const MyCalendar = () => {
     eventPropGetter={eventStyleGetter}
     style={{ height: 500, margin: '20px' }} 
     />
+
+    </div>
+      
 
     {/* Modal for creating events */}
     <Modal show={showModal} onHide={handleClose}>

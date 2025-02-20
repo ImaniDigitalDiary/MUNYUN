@@ -1,8 +1,12 @@
 // import React from 'react'
+import {useState, useEffect} from 'react'
 import { Box } from '@chakra-ui/react'
 import './styling/home.css'
 import PinkFlower from '../images/3d-Pink-Flower.png'
 // import '../index.css'
+
+// COMPONENTS
+
 
 
 import Navbar from '../components/Navbar'
@@ -12,7 +16,25 @@ import Reports from '../components/Reports'
 
 
 
+
 function HomePage() {
+  const [quote, setQuote] = useState('')
+
+  useEffect(() => {
+    const fetchQuote = async () => {
+      try {
+        const response = await fetch('https://api.adviceslip.com/advice')
+        const data = await response.json()
+        setQuote(data.slip.advice) //extract the quote text
+      } catch (error) {
+        console.error('Error fetching quote', error)
+        setQuote('Inspiration is everywhere, keep pushing forward!') // fallback quote
+      }
+    }
+    fetchQuote()
+  }, []) //runs once when the component mounts
+
+
   return (
     <div id='homeMainCont'>
     
@@ -27,13 +49,8 @@ function HomePage() {
       
       {/* <div className="testDiv"> */}
         <div bg='#ffc0cb' shadow='md' className="div3">
-          Generated inspirational quote.
+          <p className='quoteText'>{quote}</p>
         </div>
-
-        {/* <Box  bg='bg' shadow='md' borderRadius='md' className="dividk">
-          This is a random quote about life or finances to keep user in a positive mindset.
-        </Box> */}
-      {/* </div> */}
       
 
       <div className="div4"><Reports /></div>

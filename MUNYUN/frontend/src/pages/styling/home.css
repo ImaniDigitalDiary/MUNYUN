@@ -1,3 +1,4 @@
+
 .colorHolder {
     background-color: #f7d6e7;
 }
@@ -93,7 +94,7 @@
         height: 40px;
         align-self: center;
         margin-bottom: 20px;
-        border-radius: 10px;
+        border-radius: 10px; 
     }
     .calendarCont {
         /* width: 100%; */
