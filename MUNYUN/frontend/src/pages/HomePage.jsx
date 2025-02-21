@@ -47,13 +47,18 @@ function HomePage() {
         />
       </div>
       
-      {/* <div className="testDiv"> */}
+
+      <div className="middle">
         <div bg='#ffc0cb' shadow='md' className="div3">
           <p className='quoteText'>{quote}</p>
         </div>
-      
+        
 
-      <div className="div4"><Reports /></div>
+        <div className="div4">
+          <h2 className='expenseReportTitle'>Expense Report</h2>
+          <Reports />
+        </div>
+        </div>
 
       <div className="div5">Div 5</div>
     </div>

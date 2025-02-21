@@ -4,7 +4,6 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Modal, Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../pages/styling/home.css'
 import axios from 'axios'; // import axios for API calls
 
 
@@ -100,12 +99,14 @@ const MyCalendar = () => {
         .createEventBtn {
           background-color: #ffc0cb;
           border: none;
+          color: #012;
+          font-size: 20px;
         }
        
        `}
       </style>
       <div className="calenderMainCont">
-        <Button className='createEventBtn' variant='primary' onClick={handleShow}>
+        <Button className='createEventBtn shadow' variant='primary' onClick={handleShow}>
         Create Event
       </Button>
 

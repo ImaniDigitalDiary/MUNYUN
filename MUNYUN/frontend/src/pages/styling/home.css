@@ -5,9 +5,10 @@
 
 .homePage {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     grid-template-rows: auto;
+    grid-template-columns: auto;
     min-height: 100vh;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -21,7 +22,7 @@
 
 /* DIV 1 STYLES : START */
 .div1 {
-    grid-area: 1 / 1 / 2 / 6;
+    grid-area: 1 / 1 / 2 / 7;
     overflow: hidden; /* make sure navbar doesn't overflow */
     display: flex;
     flex-direction: column;
@@ -76,7 +77,7 @@
 
 /*  DIV 2 STYLES: START */
 .div2 {
-    grid-area: 2 / 1 / 5 / 3;
+    grid-area: 2 / 1 / 5 / 4;
     /* margin-left: 30px; */
     padding-left: 30px;
 
@@ -87,12 +88,13 @@
     .calenderMainCont {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
     .createEventBtn {
         background-color: #ffc0cb;
         width: 350px;
         height: 40px;
-        align-self: center;
+        /* align-self: center; */
         margin-bottom: 20px;
         border-radius: 10px; 
     }
@@ -100,7 +102,7 @@
         /* width: 100%; */
         max-width: 500px;
         margin: auto;
-        padding: 40px;
+        padding: 35px;
         background-color: #ffc0cb;
         border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -108,32 +110,45 @@
 /* DIV 2 STYLES: END */
 
 
-/* DIV 3 STYLES: START */
 .div3 {
-    grid-area: 2 / 3 / 3 / 5;
-    justify-items: center;
+    grid-area: 2 / 4 / 3 / 6;
+    /* display: flex; */
+    /* justify-content: end; */
     background-color: #ffc0cb !important;
     border-radius: 12px;
-    align-content: center;
+    /* align-content: center; */
     margin: 0 10px 0 10px;
     text-align: center;
+    font-size: 20px;
+    box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.1);
+    /* width: 500px; */
+
 }
 
 .div4 {
-    grid-area: 3 / 3 / 5 / 5;
-    display: flex;
-    flex-direction: row;
+    grid-area: 3 / 4 / 5 / 6;
+    /* display: flex; */
+    flex-direction: column;
     justify-content: center;
-    background-color: #f7d6e7;
+    background-color: #ffc0cb;
+    margin: 30px;
+    height: 450px;
+    border-radius: 10px;
+}
+.expenseReportTitle {
+    font-size: 25px;
+    text-align: center;
 }
 
 .div5 {
-    grid-area: 2 / 5 / 5 / 6;
-    display: grid;
+    grid-area: 2 / 6 / 5 / 7;
+    display: flex;
     background-color: #ffc0cb;
-    margin: 0 30px 50px 0px;
+    /* margin: 0 20px 50px 10px; */
     text-align: center;
     border-radius: 12px;
+    margin-right: 40px;
+    width: 300px;
 }
 
 
