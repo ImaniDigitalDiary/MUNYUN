@@ -6,34 +6,12 @@ import PinkFlower from '../images/3d-Pink-Flower.png'
 // import '../index.css'
 
 // COMPONENTS
-
-
-
 import Navbar from '../components/Navbar'
 import MyCalendar from '../components/Calendar'
 import Reports from '../components/Reports'
-
-
-
-
+import Quote from '../components/Quote'
 
 function HomePage() {
-  const [quote, setQuote] = useState('')
-
-  useEffect(() => {
-    const fetchQuote = async () => {
-      try {
-        const response = await fetch('https://api.adviceslip.com/advice')
-        const data = await response.json()
-        setQuote(data.slip.advice) //extract the quote text
-      } catch (error) {
-        console.error('Error fetching quote', error)
-        setQuote('Inspiration is everywhere, keep pushing forward!') // fallback quote
-      }
-    }
-    fetchQuote()
-  }, []) //runs once when the component mounts
-
 
   return (
     <div id='homeMainCont'>
@@ -50,7 +28,7 @@ function HomePage() {
 
       <div className="middle">
         <div bg='#ffc0cb' shadow='md' className="div3">
-          <p className='quoteText'>{quote}</p>
+          <Quote/>
         </div>
         
 
