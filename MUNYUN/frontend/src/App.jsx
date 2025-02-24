@@ -8,8 +8,9 @@ import CreatePage from './pages/CreatePage'
 import ExpensePage from './pages/ExpensePage'
 import ZeroBased from './pages/ZeroBased'
 
-import './index.css'
-
+// STYLING
+import '../src/pages/styling/main.css'
+ 
 // COMPONENTS
 import Navbar from './components/Navbar'
 

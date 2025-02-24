@@ -101,6 +101,7 @@ const MyCalendar = () => {
           border: none;
           color: #012;
           font-size: 20px;
+          opacity: .7;
         }
        
        `}
