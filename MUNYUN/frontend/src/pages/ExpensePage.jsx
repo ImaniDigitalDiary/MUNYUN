@@ -38,7 +38,8 @@ function ExpensePage() {
           bgGradient={'linear(to-r, cyan.400, blue-500'}
           bgClip={'text'}
           textAlign={'center'}
-          color={'blue.700'}
+          color={'#f071b3'}
+          textTransform='uppercase'
         >
           Current Expenses
         </Text>

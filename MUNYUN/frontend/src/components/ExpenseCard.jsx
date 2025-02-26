@@ -79,7 +79,8 @@ const ExpenseCard = ({expense}) => {
         overflow='hidden'
         transition='all 0.3s'
         _hover={{ transform: 'translateY(-5px)', shadow: 'xl' }}
-        bg={bg}
+        bg='#f7d6e7'
+        border='solid 5px #f071b3'
     >
         <Image  src={expense.image} alt={expense.name} h={48} w='full' objectFit='cover'/>
 
