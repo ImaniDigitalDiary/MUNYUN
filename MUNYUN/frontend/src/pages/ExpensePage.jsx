@@ -34,7 +34,7 @@ function ExpensePage() {
         <VStack spacing={8}>
         <Text
           className='pageTitle'
-          fontSize={'30'}
+          fontSize={'50'}
           fontWeight={'bold'}
           bgGradient={'linear(to-r, cyan.400, blue-500'}
           bgClip={'text'}
