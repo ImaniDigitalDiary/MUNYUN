@@ -79,7 +79,11 @@ const Reports = () => {
                 />
                 
                 {/* Legend to describe the categories */}
-                <Legend />
+                <Legend 
+                    style={{
+                        marginBottom: '20px'
+                    }}
+                />
             </PieChart>
         </div>
     )

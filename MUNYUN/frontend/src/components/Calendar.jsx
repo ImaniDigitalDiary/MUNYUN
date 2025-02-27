@@ -99,9 +99,13 @@ const MyCalendar = () => {
         .createEventBtn {
           background-color: #ffc0cb;
           border: none;
-          color: #012;
+          color: #813e8e;
           font-size: 20px;
           opacity: .7;
+
+          font-family: "Emilys Candy", serif;
+          font-weight: 600;
+          font-style: normal;
         }
        
        `}

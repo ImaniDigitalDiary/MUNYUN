@@ -26,19 +26,20 @@ function HomePage() {
       </div>
       
 
-      <div className="middle">
+      {/* <div className="middle">  */}
         <div bg='#ffc0cb' shadow='md' className="div3">
           <Quote/>
         </div>
+        {/* </div> */}
         
 
         <div className="div4">
           <h2 className='expenseReportTitle'>Expense Report</h2>
           <Reports />
         </div>
-        </div>
+        
 
-      <div className="div5">Div 5</div>
+      <div className="div5">Quick thoughts / notes area</div>
     </div>
     </div>
 
