@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 function FinanceNews() {
     const [news, setNews] = useState([])
-    
+
     useEffect(() => {
         const fetchNews = async () => {
             try {
@@ -10,7 +10,7 @@ function FinanceNews() {
                     `https://finnhub.io/api/v1/news?category=general&token=cv7r0mpr01qpecih6h5gcv7r0mpr01qpecih6h60` //api key
                 )
                 const data = await response.json()
-                setNews(data.slice(0,5)); // limit to 5 news headlines 
+                setNews(data.slice(0,3)); // limit to 3 news headlines 
             } catch (error) {
                 console.error('Error fetching news:', error)
             }
@@ -20,7 +20,8 @@ function FinanceNews() {
 
     return (
         <div className='finance-news'>
-            <h3>Latest Finance News</h3>
+            <h2>Latest Finance News</h2>
+            <hr></hr>
             <ul>
                 {news.map((article, index) => (
                     <li key={index}>
@@ -28,7 +29,9 @@ function FinanceNews() {
                             {article.headline}
                         </a>
                         <p>{article.summary}</p>
+                        <hr></hr>
                     </li>
+                    
                 ))}
             </ul>
         </div>

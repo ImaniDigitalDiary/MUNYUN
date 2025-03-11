@@ -168,7 +168,7 @@
 
 
 .div5 {
-    grid-area: 2 / 6 / 4 / 6;
+    grid-area: 2 / 6 / 4 / 7;
     display: flex;
     background-color: #ffc0cb;
     text-align: center;
@@ -177,6 +177,44 @@
     box-shadow: 6px 4px 5px rgba(212, 93, 196, 0.555);
     margin-right: 10px;
     height: 600px;
+}
+.finance-news {
+    padding: 1rem;
+    background-color: #ffc0cb;
+    border-radius: 12px;
+    /* box-shadow: 6px 4px 5px rgba(212, 93, 196, 0.555); */
+}
+
+.finance-news h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: #813e8e;
+}
+
+.finance-news ul {
+    list-style: none;
+    padding: 0;
+}
+
+.finance-news li {
+    margin-bottom: 1rem;
+}
+
+.finance-news a {
+    font-weight: bold;
+    color: #813e8e;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.finance-news a:hover {
+    text-decoration: underline;
+}
+
+.finance-news p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #bb3497;
 }
 
 
