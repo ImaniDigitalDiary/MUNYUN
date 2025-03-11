@@ -10,7 +10,7 @@ import Navbar from '../components/Navbar'
 import MyCalendar from '../components/Calendar'
 import Reports from '../components/Reports'
 import Quote from '../components/Quote'
-
+import FinanceNews from '../components/FinanceNews'
 function HomePage() {
 
   return (
@@ -39,7 +39,9 @@ function HomePage() {
         </div>
         
 
-      <div className="div5">Quick thoughts / notes area</div>
+      <div className="div5">
+        <FinanceNews />
+      </div>
     </div>
     </div>
 

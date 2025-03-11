@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
 function FinanceNews() {
+    const [news, setNews] = useState([])
+    
     useEffect(() => {
         const fetchNews = async () => {
             try {
