@@ -6,6 +6,15 @@ import { useExpenseTracking } from '../tracking/expense'
 // COMPONENTS
 import Navbar from '../components/Navbar'
 
+const convertToBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+
+
 function CreatePage({onExpenseCreate} ) {
   const [newExpense, setNewExpense] = useState({
     name: '',
@@ -101,12 +110,18 @@ function CreatePage({onExpenseCreate} ) {
             value={newExpense.price}
             onChange={(e) => setNewExpense({...newExpense, price: e.target.value})}
           />
-          <Input 
-            placeholder='Image URL'
-            name='image'
-            value={newExpense.image}
-            onChange={(e) => setNewExpense({...newExpense, image: e.target.value})}
-          />  
+          <Input
+            type="file"
+            accept="image/*"
+            onChange={async (e) => {
+              const file = e.target.files[0];
+              if (file) {
+                const base64Image = await convertToBase64(file);
+                setNewExpense({ ...newExpense, image: base64Image });
+              }
+            }}
+          />
+ 
           <Select 
             placeholder='Select Expense Category'
             name={'category'}
