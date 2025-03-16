@@ -1,4 +1,4 @@
-import { Button, Container, useColorModeValue, VStack, Heading, Box, Input, useToast, Link , Select} from '@chakra-ui/react'
+import { Button, Container, useColorModeValue, VStack, Heading, Box, Input, useToast, Link , Select, Text} from '@chakra-ui/react'
 import React from 'react'
 import { useState } from 'react'
 import { useExpenseTracking } from '../tracking/expense'
@@ -94,7 +94,16 @@ function CreatePage({onExpenseCreate} ) {
         {/* <Heading className='createPageHeading' as={'h1'} size={'2xl'} textAlign={'center'} mb={8}>
           Create New Expense
         </Heading> */}
-        <h1 className='createPageHeading'>Create New Expense</h1>
+        <Text 
+        className='pageTitle'
+          fontSize={'50'}
+          fontWeight={'bold'}
+          bgGradient={'linear(to-r, cyan.400, blue-500'}
+          bgClip={'text'}
+          textAlign={'center'}
+          color={'#f071b3'}
+          textTransform='uppercase'
+        >Create New Expense</Text>
 
         <Box className='createExpenseBox'
           w={'full'} bg={useColorModeValue('#db74a9', 'pink.700')}
