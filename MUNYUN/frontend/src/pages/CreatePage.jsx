@@ -91,12 +91,13 @@ function CreatePage({onExpenseCreate} ) {
       <VStack
         spacing={8}
       >
-        <Heading as={'h1'} size={'2xl'} textAlign={'center'} mb={8}>
+        {/* <Heading className='createPageHeading' as={'h1'} size={'2xl'} textAlign={'center'} mb={8}>
           Create New Expense
-        </Heading>
+        </Heading> */}
+        <h1 className='createPageHeading'>Create New Expense</h1>
 
-        <Box
-          w={'full'} bg={useColorModeValue('white', 'gray.800')}
+        <Box className='createExpenseBox'
+          w={'full'} bg={useColorModeValue('#db74a9', 'pink.700')}
           p={6} rounded={'lg'} shadow={'md'}
         >
           <VStack spacing={4}>

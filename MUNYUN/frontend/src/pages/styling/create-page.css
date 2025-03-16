@@ -1,8 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&display=swap');
+
 .createPageCont {
     background-color: #f7d6e7;
     min-height: 100vh;
 }
 
+.createPageHeading {
+    padding: 100px 0 20px 0;
+
+    font-family: "Emilys Candy", serif;
+    font-size: 50px;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: .25px;
+    color: #813e8e;
+}
+
 .createExpenseCont {
     background-color: #f7d6e7;
+}
+
+.createExpenseBox {
+    background-color: #db74a9;
+    border: 2px solid #8a2be2;
 }
