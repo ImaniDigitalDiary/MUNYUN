@@ -106,8 +106,8 @@ function CreatePage({onExpenseCreate} ) {
         >Create New Expense</Text>
 
         <Box className='createExpenseBox'
-          w={'full'} bg={useColorModeValue('#db74a9', 'pink.700')}
-          p={6} rounded={'lg'} shadow={'md'}
+          w={'full'} bg={useColorModeValue('#ffc0cb', 'pink.700')}
+          p={6} rounded={'lg'}
         >
           <VStack spacing={4}>
           <Input 
