@@ -3,6 +3,9 @@ import React from 'react'
 import { useState } from 'react'
 import { useExpenseTracking } from '../tracking/expense'
 
+import './styling/create-page.css'
+// import './styling/main.css'
+
 // COMPONENTS
 import Navbar from '../components/Navbar'
 
@@ -82,9 +85,9 @@ function CreatePage({onExpenseCreate} ) {
 
   
   return (
-    <div>
+    <div className='createPageCont'>
       <Navbar />
-      <Container maxW={'container.sm'}>
+      <Container className='createExpenseCont' maxW={'container.sm'}>
       <VStack
         spacing={8}
       >
@@ -121,6 +124,7 @@ function CreatePage({onExpenseCreate} ) {
               }
             }}
           />
+          
  
           <Select 
             placeholder='Select Expense Category'
