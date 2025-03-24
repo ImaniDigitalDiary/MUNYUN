@@ -8,7 +8,7 @@ import {ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons'
 // COMPONENTS
 import Navbar from '../components/Navbar'
 
-function ZeroBased() {
+function CategorizedExpenses() {
   const {fetchExpenses, expenses, isLoading, error} = useExpenseTracking()
   const [initialAmount, setInitialAmount] = useState(() => Number(localStorage.getItem('initialAmount')) || 0)
   const [remainingAmount, setRemainingAmount] = useState(() => Number(localStorage.getItem('remainingAmount')) || 0)
@@ -40,11 +40,12 @@ function ZeroBased() {
     setCategories(categorizedExpenses)
   }, [expenses])
 
+  // set budget
   useEffect(() => {
     if (isAmountSet) {
       const totalExpenses = Object.values(categories)
         .flat()
-        .reduce((sum, expense) => sum + expense.price, 0)
+        .reduce((sum, expense) => sum + Number(expense.price || 0), 0)
 
       const newRemainingAmount = initialAmount - totalExpenses
       setRemainingAmount(newRemainingAmount)
@@ -52,10 +53,10 @@ function ZeroBased() {
     }
   }, [expenses, initialAmount, isAmountSet, categories])
 
-  useEffect(() => {
-    localStorage.setItem('initialAmount', initialAmount)
-    localStorage.setItem('isAmountSet', isAmountSet)
-  }, [initialAmount, isAmountSet])
+  // useEffect(() => {
+  //   localStorage.setItem('initialAmount', initialAmount)
+  //   localStorage.setItem('isAmountSet', isAmountSet)
+  // }, [initialAmount, isAmountSet])
 
 
   const toggleCollapse = (category) => {
@@ -147,7 +148,7 @@ function ZeroBased() {
     <>
     <Navbar />
     <Container>
-      <Heading>Zero-Based Budgeting</Heading>
+      <Heading>Categorize Expenses</Heading>
       <VStack>
         {!isAmountSet ? (
           <>
@@ -263,4 +264,4 @@ function ZeroBased() {
   )
 }
 
-export default ZeroBased
+export default CategorizedExpenses

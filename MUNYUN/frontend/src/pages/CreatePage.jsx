@@ -9,6 +9,7 @@ import './styling/create-page.css'
 // COMPONENTS
 import Navbar from '../components/Navbar'
 
+// upload receipt
 const convertToBase64 = (file) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -58,7 +59,7 @@ function CreatePage({onExpenseCreate} ) {
       isClosable: true 
     })
 
-    // add the new expense to the relevant category for ZeroBased Page
+    // add the new expense to the relevant category for Categorize Expense Page
     // onExpenseCreate(newExpense) // pass the newly created expense****
     // onExpenseCreate(expenseToSave)
 
@@ -161,8 +162,8 @@ function CreatePage({onExpenseCreate} ) {
           )}
       
 
-            <Button colorScheme='blue' onClick={handleAddExpense} w='full'>
-              <Link href="/expenses/zero-based">Add Expense</Link>
+            <Button colorScheme='purple' onClick={handleAddExpense} w='full'>
+              <Link href="/expenses/categorize">Add Expense</Link>
             </Button>
           </VStack>
 

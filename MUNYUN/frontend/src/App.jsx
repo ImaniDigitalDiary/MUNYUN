@@ -6,7 +6,7 @@ import { Box, useColorModeValue } from '@chakra-ui/react'
 import HomePage from './pages/HomePage'
 import CreatePage from './pages/CreatePage'
 import ExpensePage from './pages/ExpensePage'
-import ZeroBased from './pages/ZeroBased'
+import CategorizeExpenses from './pages/CategorizeExpenses'
 
 // STYLING
 import '../src/pages/styling/main.css'
@@ -23,7 +23,7 @@ function App(addNewCategory) {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/expenses/view-expenses' element={<ExpensePage />} />
-        <Route path='/expenses/zero-based' element={<ZeroBased />}/>
+        <Route path='/expenses/categorize' element={<CategorizeExpenses />}/>
         <Route path='/expenses/create' element={<CreatePage onExpenseCreate={addNewCategory}/>} />
       </Routes>
       

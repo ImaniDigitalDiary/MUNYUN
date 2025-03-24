@@ -104,8 +104,8 @@ const MyCalendar = () => {
           opacity: .7;
 
           font-family: "Emilys Candy", serif;
-          font-weight: 600;
-          font-style: normal;
+          font-weight: 900;
+          font-style: bold;
         }
        
        `}
