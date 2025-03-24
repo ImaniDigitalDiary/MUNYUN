@@ -3,12 +3,15 @@ import React from 'react'
 import { useState } from 'react'
 import { useExpenseTracking } from '../tracking/expense'
 
+import { useNavigate } from 'react-router-dom'
+
 import './styling/create-page.css'
 // import './styling/main.css'
 
 // COMPONENTS
 import Navbar from '../components/Navbar'
 
+const navigate = useNavigate()
 // upload receipt
 const convertToBase64 = (file) =>
   new Promise((resolve, reject) => {
