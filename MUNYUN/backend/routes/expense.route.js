@@ -5,23 +5,23 @@ import { createExpense, deleteExpense, getExpenses, updateExpense, updateCategor
 const expenseRouter = express.Router();
 
 // GET ALL EXPENSES
-expenseRouter.get('/api/expenses', getExpenses);
+expenseRouter.get('/', getExpenses);
 
 
 //CREATE AN EXPENSE 
-expenseRouter.post('/api/expenses', createExpense );
+expenseRouter.post('/', createExpense );
 
 
 // UPDATE AN EXPENSE
-expenseRouter.put('/api/expenses/:id', updateExpense)
+expenseRouter.put('/:id', updateExpense)
 
 
 // DELETE AN EXPENSE
-expenseRouter.delete('/api/expenses/:id', deleteExpense ) //:id means it will be dynamic and can be any value the user passes
+expenseRouter.delete('/:id', deleteExpense ) //:id means it will be dynamic and can be any value the user passes
 
 
 // Update expense category
-expenseRouter.put('/api/expenses/update-category/:id', updateCategory)
+expenseRouter.put('/update-category/:id', updateCategory)
 
 
 // Reporting route to retrieve aggregated data for charting purposes

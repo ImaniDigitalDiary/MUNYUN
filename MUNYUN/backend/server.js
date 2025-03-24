@@ -2,8 +2,10 @@ import express from 'express';
 import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
 import cors from 'cors';
+
+// ROUTES
 import expenseRoutes from './routes/expense.route.js'
-// import eventRoutes from './routes/event.route.js';
+import eventRoutes from './routes/event.route.js';
 
 
 dotenv.config();
@@ -29,7 +31,10 @@ app.use(cors(corsOptions));
 
 
 app.use('/api/expenses', expenseRoutes)
-// app.use('/api/events', eventRoutes)
+app.use('/api/events', eventRoutes)
+
+
+
 
 app.listen(PORT, () => {
     connectDB();
