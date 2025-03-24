@@ -73,7 +73,7 @@ function CreatePage({onExpenseCreate} ) {
     setUseCustomCategory(false)
 
     // Navigate to categorize page
-    navigate('/expense/categorize')
+    navigate('/expenses/categorize')
     }
   }
 
