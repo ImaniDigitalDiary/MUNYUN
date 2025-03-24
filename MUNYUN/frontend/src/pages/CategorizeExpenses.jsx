@@ -19,6 +19,7 @@ import {
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import Navbar from '../components/Navbar';
 
+import './styling/categorize-page.css'
 function CategorizedExpenses() {
   const { fetchExpenses, expenses } = useExpenseTracking();
   const [initialAmount, setInitialAmount] = useState(() => Number(localStorage.getItem('initialAmount')) || 0);
@@ -88,12 +89,12 @@ function CategorizedExpenses() {
   };
 
   return (
-    <>
+    <div className='categorizePage'>
       <Navbar />
-      <Container maxW="container.xl">
+      <Container >
         <Heading mt={4}>Categorize Expenses</Heading>
         <VStack align="start" spacing={4} mt={4}>
-          {!isAmountSet ? (
+          {/* {!isAmountSet ? (
             <>
               <Input placeholder="Enter Initial Budget Amount" value={initialAmount} onChange={(e) => setInitialAmount(Number(e.target.value))} type="number" />
               <Button colorScheme="orange" onClick={handleSetBudget}>Set Budget</Button>
@@ -106,7 +107,7 @@ function CategorizedExpenses() {
               <Input placeholder="Add Money to Budget" value={additionalAmount} onChange={(e) => setAdditionalAmount(e.target.value)} type="number" />
               <Button colorScheme="blue" onClick={handleAddMoney}>Add Money</Button>
             </>
-          )}
+          )} */}
 
           <DragDropContext onDragEnd={handleDragEnd}>
             {Object.keys(categories).map((category, catIdx) => (
@@ -142,7 +143,7 @@ function CategorizedExpenses() {
           </DragDropContext>
         </VStack>
       </Container>
-    </>
+    </div>
   );
 }
 
