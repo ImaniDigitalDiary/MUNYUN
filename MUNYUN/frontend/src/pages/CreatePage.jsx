@@ -11,7 +11,7 @@ import './styling/create-page.css'
 // COMPONENTS
 import Navbar from '../components/Navbar'
 
-const navigate = useNavigate()
+
 // upload receipt
 const convertToBase64 = (file) =>
   new Promise((resolve, reject) => {
@@ -23,6 +23,7 @@ const convertToBase64 = (file) =>
 
 
 function CreatePage({onExpenseCreate} ) {
+  const navigate = useNavigate()
   const [newExpense, setNewExpense] = useState({
     name: '',
     price: '',
@@ -70,6 +71,9 @@ function CreatePage({onExpenseCreate} ) {
     setNewExpense({name:'', price: '', image: '', category: ''})
     setCustomCategory('')
     setUseCustomCategory(false)
+
+    // Navigate to categorize page
+    navigate('/expense/categorize')
     }
   }
 
