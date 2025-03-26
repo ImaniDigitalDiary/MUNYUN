@@ -15,7 +15,11 @@ export const getExpenses = async (req, res) => {
 export const createExpense = async (req, res) => {
     const expense = req.body; // user will send this data 
 
-    if(!expense.name || !expense.price || !expense.image) {
+    // if(!expense.name || !expense.price || !expense.image) {
+    //     return res.status(400).json({ success: false, message: "Please provide all fields"})
+    // }
+
+     if(!expense.name || !expense.price) {
         return res.status(400).json({ success: false, message: "Please provide all fields"})
     }
 
