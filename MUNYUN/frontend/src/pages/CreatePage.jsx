@@ -45,7 +45,7 @@ function CreatePage({onExpenseCreate} ) {
       category: useCustomCategory ? customCategory : newExpense.category,
     }
 
-    // if no image added, remove image field so form will go through
+    // if no image added, remove image field so form will go submit
     if (!expenseToSave.image) {
       delete expenseToSave.image
     }
@@ -100,7 +100,7 @@ function CreatePage({onExpenseCreate} ) {
   return (
     <div className='createPageCont'>
       <Navbar />
-      <Container className='createExpenseCont' maxW={'container.sm'}>
+      <Container className='createExpenseCont' maxW={'container.sm'} autoComplete='off'>
       <VStack
         spacing={8}
       >
@@ -128,6 +128,7 @@ function CreatePage({onExpenseCreate} ) {
             name='name'
             value={newExpense.name}
             onChange={(e) => setNewExpense({...newExpense, name: e.target.value})}
+            autoComplete='off'
           />
           <Input 
             placeholder='Price'
@@ -135,6 +136,7 @@ function CreatePage({onExpenseCreate} ) {
             type='number'
             value={newExpense.price}
             onChange={(e) => setNewExpense({...newExpense, price: e.target.value})}
+            autoComplete='off'
           />
           <Input
             type="file"
@@ -148,6 +150,7 @@ function CreatePage({onExpenseCreate} ) {
                 setNewExpense({...newExpense, image: ''})
               }
             }}
+            autoComplete='off'
           />
           
  

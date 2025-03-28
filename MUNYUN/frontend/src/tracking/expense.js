@@ -5,16 +5,28 @@ export const useExpenseTracking = create((set) => ({
     setExpenses: (expenses) => set({expenses}),
     // passing new expense into function to create expense for db
     createExpense: async (newExpense) => {
-        if (!newExpense.name || !newExpense.image || !newExpense.price) {
+        if (!newExpense.name || !newExpense.price) {
             return {success: false, message: 'Please fill in all the required information'}
         }
+
+        const expenseData = {
+            name: newExpense.name,
+            price: newExpense.price,
+            category: newExpense.category,
+        }
+
+        // only include an image if it exists
+        if(newExpense.image) {
+            expenseData.image = newExpense.image;
+        }
+
         const res = await fetch('http://localhost:8000/api/expenses/', {
             method: 'POST',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(newExpense),
+            body: JSON.stringify(expenseData),
         })
 
         const data = await res.json()
