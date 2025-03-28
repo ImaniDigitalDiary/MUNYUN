@@ -45,6 +45,11 @@ function CreatePage({onExpenseCreate} ) {
       category: useCustomCategory ? customCategory : newExpense.category,
     }
 
+    // if no image added, remove image field so form will go through
+    if (!expenseToSave.image) {
+      delete expenseToSave.image
+    }
+
   //  const {success, message} = await createExpense(newExpense)
   const {success, message} = await createExpense(expenseToSave)
 
@@ -139,6 +144,8 @@ function CreatePage({onExpenseCreate} ) {
               if (file) {
                 const base64Image = await convertToBase64(file);
                 setNewExpense({ ...newExpense, image: base64Image });
+              } else {
+                setNewExpense({...newExpense, image: ''})
               }
             }}
           />
