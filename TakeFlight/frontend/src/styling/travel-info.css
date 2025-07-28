@@ -1,0 +1,152 @@
+
+.travelInfoImage {
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+}
+
+.guidelines {
+    display: flex;
+    flex-direction: column;
+    width: 1160px;
+    align-self: center;
+    margin-top: 30px;
+    
+}
+.guidelinesHeader {
+    font-weight: bold;
+}
+.guidelinesHeaderPara {
+    font-weight: 500;
+}
+
+
+
+/* PLAN A TRIP */
+
+.planATripMain {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* width: 1160px; */
+    /* margin-bottom: 30px; */
+}
+.planATripCont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* width: 1160px; */
+    height: 110px;
+    box-shadow: inset 0 0 0 1px #d7d7d4;
+    border-radius: 10px;
+    padding: 16px;
+}
+.planATripMain .planATripCont:hover {
+    box-shadow: inset 0 0 0 2px #1414d2;
+}
+.planATripIconDiv   {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 20px;
+}
+.planATripText {
+    width: 700px;
+}
+.planATripArrowDiv {
+    display: flex;
+    align-items: center;
+    color: #1414d2;
+}
+
+
+/* ACC AND ASSIST */
+
+.accAndAssistMain {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.accAndAssistCont {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    height: 110px;
+    box-shadow: inset 0 0 0 1px #d7d7d4;
+    border-radius: 10px;
+    padding: 16px;
+}
+.accAndAssistMain .accAndAssistCont:hover {
+    box-shadow: inset 0 0 0 2px #1414d2;
+}
+
+.accAndAssistIconDiv {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 20px;
+}
+
+.accAndAssistText {
+    width: 700px;
+}
+
+.accAndAssistArrowDiv {
+    display: flex;
+    align-items: center;
+    color: #1414d2;
+}
+
+
+/* MY TRIPS */
+.myTripsMain {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.myTripsCont {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    height: 110px;
+    box-shadow: inset 0 0 0 1px #d7d7d4;
+    border-radius: 10px;
+    padding: 16px;
+}
+.myTripsMain .myTripsCont:hover {
+    box-shadow: inset 0 0 0 2px #1414d2;
+}
+
+.myTripsIconDiv {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 20px;
+}
+
+.myTripsText {
+    width: 700px;
+}
+
+.myTripsArrowDiv {
+    display: flex;
+    align-items: center;
+    color: #1414d2;
+}
+
+.travelBtnDiv .travelBtn:hover {
+    color: #fff;
+    background-color: #1414d2;
+}
+
+.chevronIcon {
+    color: #1414d2;
+    transition: color 0.1s ease;
+}
+
+.chevronIcon:hover {
+    color: #fff;
+}
+
+.travelBtnDiv:hover .chevronIcon {
+    color: #fff;
+}

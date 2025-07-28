@@ -1,0 +1,109 @@
+.exploreDiv {
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+}
+.exploreHeadingDiv {
+    margin-left: 100px;
+}
+.exploreH1 {
+    font-family: "NeuePlakforUnited-SmBd", "Noto Sans", "Arial", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: .5px;
+    margin-top: 20px;
+}
+.exploreH2 {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "NeuePlakforUnited-Rg", "Noto Sans", "Arial", sans-serif;
+    line-height: 1.33;
+    margin-bottom: 50px;
+}
+
+.exploreInputs {
+    display: flex; 
+    flex-direction: row;
+    gap: 20px;
+    margin-left: 100px;
+}
+
+.flyingFromDiv {
+    display: flex;
+    flex-direction: column;
+}
+.flyingFrom{
+    width: 243px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+}
+.chooseExploreTypeDiv {
+    display: flex;
+    flex-direction: column;
+}
+.chooseExploreType {
+    width: 147px;
+    height: 44px;
+    border-radius: 10px;
+    border: none;
+}
+.maxPriceDiv {
+    display: flex;
+    flex-direction: column;
+}
+.maxPrice {
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+}
+.exploreBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 167px;
+    height: 40px;
+    margin-top: 20px;   
+    border-radius: 50px;
+    border: none;
+    background-color: #1414d2;
+    color: #fff;
+    font-size: 16px;
+}
+.refineDiv {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    font-size: 18px;
+    margin-top: 20px;
+    color: #1414d2;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.faAngleRight {
+    margin-right: 20px;
+    color: #1414d2;
+}
+
+
+
+
+
+.exploreInputs {
+    display: flex;
+}
+
+.mapCont {
+    margin-top: 2rem;
+    text-align: center;
+}
+.exploreNote {
+    /* text-align: center; */
+    background: #f2f2f2;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+
+}

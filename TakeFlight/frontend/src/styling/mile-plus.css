@@ -1,0 +1,284 @@
+hr {
+    width: 780px;
+    align-self: center;
+}
+
+.milePlusMain {
+    display: flex;
+    flex-direction: column;
+    /* justify-self: center; */
+    width: 815px;
+    padding-left: 130px;
+}
+.steps {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 815px;
+    height: 60px;
+    border: solid 1px #d7d7d4;
+    box-shadow: 1px 2px #d7d7d4;
+    padding-left: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.oneBtn, .twoBtn, .threeBtn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 6px;
+    background-color: #fff;
+}
+.oneBtn {
+    background-color: #1414d2;
+    color: #fff;
+}
+.milePlusHeadText {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.memberDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 815px;
+    height: 102px;
+    border: solid 2px #ccc;
+    border-radius: 10px;
+}
+.memberTextAndIcon {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    gap: 20px;
+    font-size: 24px;
+    margin-left: 30px;
+}
+.memberBtn {
+    width: 134px;
+    height: 52px;
+    border-radius: 50px;
+    align-self: center;
+    margin-right: 30px;
+    border: solid 2px #1414d2;
+    background-color: #fff;
+    color: #1414d2;
+    font-weight: 500;
+}
+
+
+
+/* MEMBER IMAGES */
+.memberImagesDiv {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.memberImgDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.memberImgDiv h6 {
+    font-weight: bold;
+    width: 125px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+.memberImg {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* ABOUT YOURSELF */
+.aboutYourselfDiv {
+    display: flex;
+    flex-direction: column;
+    width: 815px;
+    height: 900px;
+    border: solid 1px rgba(204, 204, 204, 0.3);
+}
+.aboutYourselfDiv h3 {
+    height: 48px;
+    background-color: #ebebe9;
+    align-content: center;
+    padding-left: 10px;
+}
+.aboutYourselfPara {
+    font-weight: 600;
+    padding: 0 10px 0 10px;
+}
+
+/* CONTACT  */
+.contactDiv {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.contactDiv h4 {
+    font-weight: 600;
+}
+.personalInfoDiv h4 {
+    font-weight: 600;
+}
+.contactInputDiv {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+.contactInput {
+    width: 370px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.contactCheckboxesDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    font-size: 18px;
+}
+.contactCheckbox {
+    width: 20px;
+    height: 20px; 
+    margin-right: 10px;
+}
+span {
+    color: #1414d2;
+    font-weight: 600;
+}
+.contactCheckboxesDiv p {
+    letter-spacing: .3px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.email, 
+.phoneNumber, 
+.title, 
+.first,
+.middle, 
+.last, 
+.suffix, 
+.dobDiv {
+    font-weight: 500;
+}
+
+
+
+/* PERSONAL INFO INPUTS */
+
+.personalInfoDiv {
+    padding-left: 10px;
+    width: 780px;
+}
+.peronsalInfoInputsDiv1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    gap: 30px;
+}
+.infoInputsDiv1 {
+ grid-area: 1/1/2/2;
+}
+.infoInputsDiv2 {
+    grid-area: 1/2/2/3;
+}
+.infoInputsDiv3 {
+    grid-area: 2/1/3/2;
+}
+.infoInputsDiv4 {
+    grid-area: 2/2/3/3;
+}
+.div1, .div2 {
+    display: flex;
+    flex-direction: column;
+}
+.div1 input, .div2 input {
+    /* width: 375px; */
+    height: 40px;
+    border-radius: 8px;
+}
+
+.selectTitle {
+    height: 40px;
+    border-radius: 8px;
+}
+
+
+.peronsalInfoInputsDiv2 {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    margin: 25px 0 25px 0;
+}
+
+.div3, .div4, .div5 {
+    display: flex;
+    flex-direction: column;
+}
+.dob {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.suffix {
+    width: 160px;
+    height: 42px;
+}
+.month {
+    width: 155px;
+    height: 42px;
+}
+.date {
+    width: 87px;
+    height: 42px;
+    border-radius: 8px;
+}
+.year {
+    width: 100px;
+    height: 42px;
+    border-radius: 8px;
+}
+.gender {
+    width: 210px;
+    height: 42px;
+    border-radius: 8px;
+}
+
+
+
+/* PERSONAL INFO BTNS */
+.personalInfoBtns {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 30px 0 30px 0;
+}
+.contBtn {
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #1414d2;
+    color: #fff;
+    border: none;
+}
+.cancelBtn {
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #1414d2;
+    border: solid 2px #1414d2;
+}

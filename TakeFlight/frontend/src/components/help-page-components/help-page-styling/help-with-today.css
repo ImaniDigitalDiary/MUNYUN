@@ -1,0 +1,64 @@
+.helpMainDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.helpMainCont h1 {
+    padding-left: 10px;
+}
+
+.mainDiv {
+    
+   /* width: 100%; */
+}
+
+.headingDiv {
+    padding-left: 30px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+li {
+    color: #0000ff;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: .3px;
+}
+
+
+.topicBtnDiv {
+    background-color: #fff;
+}
+.topicBtn {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8px;
+    border: none;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 3px;
+    
+}
+.topicBtn:hover {
+    border: solid 1px #1414d2;
+}
+
+.faChevronRight {
+    align-self: center;
+    color: #1414d2;
+}
+
+.contentDiv {
+    width: 900px;
+    flex: 1;
+    padding: 40px;
+    box-sizing: border-box;
+}

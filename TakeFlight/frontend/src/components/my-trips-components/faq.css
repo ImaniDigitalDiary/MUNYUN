@@ -1,0 +1,40 @@
+.faqComponentMain {
+    display: flex;
+    flex-direction: column;
+}
+.faqComponent {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 1135px;
+}
+
+.faqsHeader {
+    border-bottom: solid 1px #d7d7d4;
+    padding: 10px 0 10px 0;
+}
+
+.faqDiv {
+    /* background-color: blue; */
+}
+.faqBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    width: 1135px;
+    height: 55px;
+    background-color: #fff;
+    border-bottom: solid 1px #d7d7d4;
+    font-weight: bold;
+    letter-spacing: .8px;
+}
+
+.faqLinkDiv {
+    padding: 20px 0 20px 0;
+}
+.faqLinkDiv a {
+    text-decoration: none;
+    color: #1414d2;
+}

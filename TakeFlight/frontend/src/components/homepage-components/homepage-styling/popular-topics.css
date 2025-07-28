@@ -1,0 +1,89 @@
+.searchTopicsMainDiv {
+    background-color: #002244;
+    color: #fff;
+}
+.searchTopicsWrapper {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0 50px 0;
+}
+.searchTopicsInputDiv {
+    border: solid 1px #1414d2;
+    background-color: #fff;
+}
+.searchTopicsInputDiv input {
+    border: none;
+    width: 574px;
+    height: 62px;
+}
+.searchTopics {
+    font-weight: 500;
+    font-size: 18px;
+    padding-left: 10px;
+    color: #1414d2;
+}
+.searchTopics::placeholder {
+    color: #989898;
+    letter-spacing: 1px;
+}
+
+.searchIcon {
+    padding-right: 20px;
+    color: #1414d2;
+}
+
+.searchTopicsLinks {
+   display: grid;
+   grid-template-columns: repeat(4, auto);
+   row-gap: 15px;
+   column-gap: 40px;
+   padding: 0 0 70px 40px;
+}
+
+.searchTopicsLinks ul {
+    display: contents; 
+    padding: 0;
+    margin: 0;
+}
+
+.searchTopicsLinks li {
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.faWifi,
+.faPlane,
+.faUsers,
+.faPaw,
+.faBookmark,
+.faSuitcase,
+.faSackDollar,
+.faHeadset  {
+    margin-right: 10px;
+}
+
+/* .searchTopicsLinksMainFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between ;
+    background-color: #ebebe9;
+    color: #1414d2;
+    font-weight: 600;
+}
+.searchlinksFooter {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin: 20px 0 20px 0;
+} 
+.impNoticeDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px 0 20px 0;
+    padding-right: 140px;
+}
+.faCircleInfo {
+    padding-right: 5px;
+} */
